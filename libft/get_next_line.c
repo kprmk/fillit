@@ -6,11 +6,11 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 20:44:35 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/11/09 22:28:42 by mbrogg           ###   ########.fr       */
+/*   Updated: 2019/11/19 21:21:25 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 /*
 **	Check descriptor and allocate memory for line

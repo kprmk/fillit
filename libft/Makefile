@@ -6,7 +6,7 @@
 #    By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/15 21:34:43 by mbrogg            #+#    #+#              #
-#    Updated: 2019/11/08 09:45:34 by mbrogg           ###   ########.fr        #
+#    Updated: 2019/11/19 21:20:46 by mbrogg           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,7 @@ SRCS = ft_atoi.c \
 	ft_lstdelone_s.c \
 	ft_lstnew_fd.c \
 	ft_strjoin_s.c \
+	get_next_line.c \
 
 .PHONY: all clean fclean re
 

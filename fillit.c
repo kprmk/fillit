@@ -1,7 +1,21 @@
-#include "get_next_line.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fillit.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/19 21:16:59 by mbrogg            #+#    #+#             */
+/*   Updated: 2019/11/19 21:46:10 by mbrogg           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "fillit.h"
+
+#include <stdio.h>
 
 /*
-**	Print table is width and height is size
+**	Print table within its width and height that is represents by size
 */
 static	void	print_table(int **table, int size)
 {
@@ -67,12 +81,13 @@ static	int		check_tetriminos(int ***table, int size)
 			}
 		}
 	}
-	print_table(*table, size);
+	printf("~%d\n", sum);
+	// print_table(*table, size);
 	return (sum == 6 ? 1 : 0);
 }
 
 /*
-**
+** LEAKS IBIT_TABLE
 */
 static	int		check_input_with_table(int	***table, char *str, int *i, int *size)
 {
@@ -98,7 +113,7 @@ static	int		check_input_with_table(int	***table, char *str, int *i, int *size)
 
 /*
 **	Each character must be either a block character(’#’)
-**	or an empty character (’.’)/
+**	or an empty character (’.’)
 */
 int		check_input_data(char *file_name)
 {
@@ -123,14 +138,14 @@ int		check_input_data(char *file_name)
 		ft_putstr(str);
 		ft_putchar('\n');
 	}
-	print_table(table, 4);
+	// print_table(table, 4);
 	close(fd);
 	return (1);
 }
 
 int main()
 {
-	if (check_input_data("input.txt"))
+	if (!check_input_data("input.txt"))
 		ft_putstr("ERROR\n");
 	else
 		ft_putstr("SUCCESS\n");

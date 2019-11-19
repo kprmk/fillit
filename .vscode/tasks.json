@@ -8,10 +8,13 @@
 			"label": "FILL",
 			"command": "gcc",
 			"args": [
-				"-g",
+				"-g",				
+				"-I",
+				"${workspaceFolder}/libft/includes/",
 				"${workspaceFolder}/libft/libft.a",
-				"${workspaceFolder}/get_next_line.c",
 				"${workspaceFolder}/fillit.c",
+				"-o",
+				"${workspaceFolder}/a"
 			],
 			"options": {
 				"cwd": "/usr/bin"
