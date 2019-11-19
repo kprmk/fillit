@@ -3,16 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mbrogg <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/15 21:34:43 by mbrogg            #+#    #+#              #
-#    Updated: 2019/09/15 21:34:47 by mbrogg           ###   ########.fr        #
+#    Updated: 2019/11/08 09:45:34 by mbrogg           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 COMPILER = gcc
 FLAGS = -Wall -Wextra -Werror -g
+INC = -I includes/
 SRCS = ft_atoi.c \
 	ft_strmap.c \
 	ft_bzero.c \
@@ -76,12 +77,9 @@ SRCS = ft_atoi.c \
 	ft_lstdel.c \
 	ft_lstiter.c \
 	ft_lstmap.c \
-	btree_apply_infix.c \
-	btree_apply_prefix.c \
-	btree_apply_suffix.c \
-	btree_create_node.c \
-	btree_insert_data.c \
-	btree_search_item.c \
+	ft_lstdelone_s.c \
+	ft_lstnew_fd.c \
+	ft_strjoin_s.c \
 
 .PHONY: all clean fclean re
 
@@ -92,7 +90,7 @@ $(NAME): $(SRCS:.c=.o)
 	@ranlib	$(NAME)
 
 %.o: %.c
-	@$(COMPILER) $(FLAGS) $< -c -o $@
+	@$(COMPILER) $(FLAGS) $(INC) $< -c -o $@
 
 clean:
 	@rm -f $(SRCS:.c=.o)
