@@ -6,7 +6,7 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 11:36:21 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/11/19 18:49:45 by mbrogg           ###   ########.fr       */
+/*   Updated: 2019/11/08 11:20:20 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/types.h>
-# include <fcntl.h>
-# include <limits.h>
-# define BUFF_SIZE 50
 
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
@@ -92,9 +89,8 @@ void			ft_lstdelone(t_list **alst, void(*del)(void *, size_t));
 t_list			*ft_lstnew_fd(size_t fd);
 size_t			ft_lstdelone_s(t_list **head, t_list **alst);
 void			ft_lstdel(t_list **alst, void(*del)(void *, size_t));
-void			t_lstadd(t_list **alst, t_list *new);
+void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void(*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-int				get_next_line(const int fd, char **line);
 
 #endif
