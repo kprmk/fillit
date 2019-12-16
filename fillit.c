@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 21:16:59 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/16 22:25:19 by mbrogg           ###   ########.fr       */
+/*   Updated: 2019/12/16 22:34:07 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ int			solve(char ***map, int map_size, char **tab, int num, int total)
 				{
 					if ((solve(map, map_size, tab, num + 1, total)) == 0)
 						return (0);
+					else
+						clear_tetri(map, tab[num], curr_xy[0], curr_xy[1]);
+					
 				}
 				else
 					clear_tetri(map, tab[num], curr_xy[0], curr_xy[1]);
