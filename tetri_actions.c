@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tetri_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 22:01:55 by eshor             #+#    #+#             */
-/*   Updated: 2019/12/16 21:34:00 by eshor            ###   ########.fr       */
+/*   Updated: 2019/12/16 22:25:41 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		can_push_tetri(char ***map, int map_size, char *coord, int *curr_xy)
 		figure_y = coord[i];
 		if ((curr_x + figure_x >= map_size) || (curr_y + figure_y >= map_size))
 			return (-1);
-		if ((*map)[curr_y + figure_y][curr_x + figure_x] == '#')
+		if ((*map)[curr_y + figure_y][curr_x + figure_x] != '.')
 			return (-1);
 		i += 2;
 	}
@@ -56,7 +56,7 @@ void	clear_tetri(char ***map, char *coord, int curr_x, int curr_y)
 	}
 }
 
-void	push_tetri(char ***map, char *coord, int curr_x, int curr_y)
+void	push_tetri(char ***map, char *coord, int *curr, int num)
 {
 	int i;
 	int figure_x;
@@ -69,7 +69,7 @@ void	push_tetri(char ***map, char *coord, int curr_x, int curr_y)
 	{
 		figure_x = coord[i + 1];
 		figure_y = coord[i];
-		(*map)[curr_y + figure_y][curr_x + figure_x] = '#';
+		(*map)[curr[1] + figure_y][curr[0] + figure_x] = 'A' + num;
 		i += 2;
 	}
 }

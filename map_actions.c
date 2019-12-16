@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_actions.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 21:31:08 by eshor             #+#    #+#             */
-/*   Updated: 2019/12/16 18:01:23 by eshor            ###   ########.fr       */
+/*   Updated: 2019/12/16 21:34:45 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ char	**create_map(int size)
 		return (NULL);
 	while (i < size)
 	{
-		if (!(map[i] = (char*)malloc(sizeof(char*) * size)))
+		if (!(map[i] = (char*)malloc(sizeof(char) * size)))
 		{
-			delete_map(&map, size);
+			delete_map(&map, i);
 			return (NULL);
 		}
 		j = 0;

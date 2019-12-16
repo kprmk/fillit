@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 15:53:40 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/16 16:18:11 by eshor            ###   ########.fr       */
+/*   Updated: 2019/12/16 21:48:14 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ int		check_input_with_table(int ***table, char *str, int *i, int *size)
 	if (*i == 4)
 	{
 		(*size)++;
-//		print_table(*table);
-//		printf("\n");
 		if (!check_tetraminos(table))
 			return (0);
 		*i = -1;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 18:51:44 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/16 21:32:00 by eshor            ###   ########.fr       */
+/*   Updated: 2019/12/16 22:12:26 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	delete_map(char ***map, int map_size);
 void	move_upleft(char ***tab, int size);
 int		can_push_tetri(char ***map, int map_size, char *coord, int *curr_xy);
 void	clear_tetri(char ***map, char *coord, int curr_x, int curr_y);
-void	push_tetri(char ***map, char *coord, int curr_x, int curr_y);
+void	push_tetri(char ***map, char *coord, int *curr, int num);
 int		can_tetri_be_in_map(char **map, int map_size, char *coord);
 int		*find_next_upperleft(int map_size, int *curr_xy);
 int		solve(char ***map, int map_size, char **tab, int num, int total);
