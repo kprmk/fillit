@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 15:53:40 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/07 16:09:13 by mbrogg           ###   ########.fr       */
+/*   Updated: 2019/12/16 16:18:11 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int		check_input_with_table(int ***table, char *str, int *i, int *size)
 	if (*i == 4)
 	{
 		(*size)++;
-		print_table(*table);
-		printf("\n");
+//		print_table(*table);
+//		printf("\n");
 		if (!check_tetraminos(table))
 			return (0);
 		*i = -1;
@@ -110,36 +110,4 @@ char	**second_pass(char *file_name, int amount)
 		fill_double_array(&double_array, array_coord, str, &i);
 	close(fd);
 	return (double_array);
-}
-
-int		main(void)
-{
-	int		amount;
-	char	file_name[] = "input.txt";
-	char	**double_array;
-	int		i;
-	int		j;
-
-	i = -1;
-	j = -1;
-	amount = 0;
-	if (!check_input_data(file_name, &amount))
-		ft_putstr("ERROR\n");
-	else
-	{
-		ft_putstr("SUCCESS\n\n");
-		if (!(double_array = second_pass(file_name, amount)))
-			printf("Error. Array of coordinates doesn't exist\n");
-		else
-		{
-			while (double_array[++i])
-			{
-				j = -1;
-				while (++j < 8)
-					printf("%d ", double_array[i][j]);
-				printf("\n");
-			}
-		}
-	}
-	return (0);
 }
