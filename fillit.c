@@ -6,13 +6,12 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 21:16:59 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/16 20:22:35 by mbrogg           ###   ########.fr       */
+/*   Updated: 2019/12/16 20:29:05 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void print_fuck()
-{
-	ft_putstr("")
-}
+qwerty
+qwerty
+qwerty
