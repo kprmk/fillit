@@ -6,13 +6,13 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 21:16:59 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/16 20:17:07 by mbrogg           ###   ########.fr       */
+/*   Updated: 2019/12/16 20:26:53 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void print_fuck()
+int mac()
 {
-	ft_putstr("FUCK!");
+	qwerty
 }
