@@ -12,9 +12,9 @@
 				"-I",
 				"${workspaceFolder}/libft/includes/",
 				"${workspaceFolder}/libft/libft.a",
-				"${workspaceFolder}/fillit.c",
+				"${workspaceFolder}/*.c",
 				"-o",
-				"${workspaceFolder}/a"
+				"${workspaceFolder}/a.out"
 			],
 			"options": {
 				"cwd": "/usr/bin"

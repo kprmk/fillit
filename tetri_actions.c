@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 22:01:55 by eshor             #+#    #+#             */
-/*   Updated: 2019/12/16 20:37:30 by eshor            ###   ########.fr       */
+/*   Updated: 2019/12/16 21:34:00 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,13 +110,49 @@ int		*find_next_upperleft(char **map, int map_size, int *curr_xy)
 	curr_y = curr_xy[1];
 	if (curr_x == curr_y && curr_x == map_size - 1)
 		return (NULL);
-	if (curr_x == 0 && curr_y < map_size - 1)
+	if (curr_x == 0 && curr_y == 0)
+		curr_x = 1;
+	else if (curr_x == 0 && curr_y < map_size - 1)
 	{
-		curr_x = curr_y;
+		curr_x = curr_y + 1;
 		curr_y = 0;
 	}
 	else if (curr_y == map_size - 1)
-	
+	{
+		curr_y = curr_x + 1;
+		curr_x = map_size - 1;
+		
+	}
+	else
+	{
+		curr_x--;
+		curr_y++;
+	}
+	curr_xy[0] = curr_x;
+	curr_xy[1] = curr_y;
 	return (curr_xy);
 }
 */
+
+int		*find_next_upperleft(int map_size, int *curr_xy)
+{
+	int curr_x;
+	int curr_y;
+
+	curr_x = curr_xy[0];
+	curr_y = curr_xy[1];
+	if (curr_x == curr_y && curr_x == map_size - 1)
+		return (NULL);
+	if (curr_x == map_size - 1)
+	{
+		curr_x = 0;
+		curr_y++;
+	}
+	else
+	{
+		curr_x++;
+	}
+	curr_xy[0] = curr_x;
+	curr_xy[1] = curr_y;
+	return (curr_xy);
+}

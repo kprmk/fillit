@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 21:16:59 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/16 20:39:22 by eshor            ###   ########.fr       */
+/*   Updated: 2019/12/16 21:35:09 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			solve(char ***map, int map_size, char **tab, int num, int total)
 		if (can_push_tetri(map, map_size, tab[num], curr_xy) == 0)
 		{
 			push_tetri(map, tab[num], curr_xy[0], curr_xy[1]);
-			print_map(*map, map_size);
+//			print_map(*map, map_size);
 			if (num + 1 < total)
 			{
 				if ((can_tetri_be_in_map(*map, map_size, tab[num + 1])) == 0)
@@ -38,7 +38,7 @@ int			solve(char ***map, int map_size, char **tab, int num, int total)
 			else
 				return (0);
 		}
-		curr_xy = find_next_upperleft(*map, map_size, curr_xy);
+		curr_xy = find_next_upperleft(map_size, curr_xy);
 	}
 	return (-1);
 }
@@ -48,7 +48,7 @@ void		bruteforce(char **tab, int tetri_nbr)
 	char	**map;
 	int		j;
 	int		map_size;
-
+	
 	move_upleft(&tab, tetri_nbr);
 	map_size = ft_sqrt(tetri_nbr * 4);
 	map = create_map(map_size);

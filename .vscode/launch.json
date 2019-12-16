@@ -5,9 +5,8 @@
             "name": "C Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/a",
+            "program": "${workspaceRoot}/a.out",
             "preLaunchTask": "FIL",
-            "internalConsoleOptions": "openOnSessionStart",
             "logging": {
                 "moduleLoad": false,
                 "programOutput": true,
