@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 18:51:44 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/16 19:51:02 by eshor            ###   ########.fr       */
+/*   Updated: 2019/12/16 20:39:06 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,10 @@ int		can_tetri_be_in_map(char **map, int map_size, char *coord);
 int		*find_next_upperleft(char **map, int map_size, int *curr_xy);
 int		solve(char ***map, int map_size, char **tab, int num, int total);
 void	bruteforce(char **tab, int tetri_nbr);
+
+
+
+HOOY
+
 
 #endif
