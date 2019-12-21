@@ -6,7 +6,7 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 18:26:29 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/21 19:37:13 by mbrogg           ###   ########.fr       */
+/*   Updated: 2019/12/21 23:37:40 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void    lst_print(t_lst *head)
     {
         i = -1;
         ft_putnbr(head->index_number);
-        ft_putstr(" -> ");
+        ft_putstr("\t\b\b\b\b\b->  ");
         while (++i < 8)
             ft_putnbr(head->coords[i]);
         ft_putchar('\n');

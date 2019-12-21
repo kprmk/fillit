@@ -5,114 +5,97 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/07 15:56:18 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/07 16:09:12 by mbrogg           ###   ########.fr       */
+/*   Created: 2019/12/21 23:21:31 by mbrogg            #+#    #+#             */
+/*   Updated: 2019/12/21 23:33:24 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	print_table(int **table)
+char	mod(int a)
+{
+	return (a < 0 ? -a : a);
+}
+
+char	check_6(char *ar)
+{
+	int	i;
+
+	i = 0;
+	if (ar[i] == ar[i + 2] && ar[i + 4] == ar[i + 6])
+		return (1);
+	while (i < 6)
+	{
+		if (ar[i + 2] - ar[i] != 1)
+			return (0);
+		i += 2;
+	}
+	return (1);
+}
+
+char	check_3(char *ar)
 {
 	int		i;
-	int		j;
 
-	i = -1;
-	while (++i < 4)
+	i = 1;
+	while (i < 7)
 	{
-		j = -1;
-		while (++j < 4)
-			ft_putchar(table[i][j] + '0');
-		ft_putchar('\n');
+		if (ar[i + 2] - ar[i] != 1)
+			return (0);
+		i += 2;
 	}
+	return (1);
 }
 
-/*
-**	LEAKS!!
-*/
-
-int		**init_table(int **table)
-{
-	int		c;
-
-	c = 0;
-	if (!(table = (int **)malloc(sizeof(int *) * (4 + 1))))
-		return (NULL);
-	while (c < 4)
-		*(table + c++) = (int *)malloc(sizeof(int) * 4);
-	*(table + c) = NULL;
-	return (table);
-}
-
-/*
-**	Amount values
-*/
-
-int		check_spot(int **table, int i, int j)
+char	check_point_spot(char *ar, int i)
 {
 	int		res;
 
 	res = 0;
-	if (i < 4 - 1)
-		res += table[i + 1][j] ? 1 : 0;
-	if (i > 0)
-		res += table[i - 1][j] ? 1 : 0;
-	if (j < 4 - 1)
-		res += table[i][j + 1] ? 1 : 0;
-	if (j > 0)
-		res += table[i][j - 1] ? 1 : 0;
-	return (res - 1);
-}
-
-int		check_square_tetramino(int **table)
-{
-	int		i;
-	int		j;
-
-	i = -1;
-	j = -1;
-	while (++i < 4)
+	if (ar[i + 1] < 4)
 	{
-		j = -1;
-		while (++j < 4)
+		if (ar[i] < 4)
 		{
-			if (table[i][j] != 0)
-			{
-				if (table[i][j] == 2 && table[i][j + 1] == 2 &&
-					table[i + 1][j] == 2 && table[i + 1][j + 1] == 2)
-					return (1);
-				else
-					return (0);
-			}
+			if (ar[i + 2] - ar[i] == 1 && ar[i + 1] == ar[i + 3])
+				res += 2;
+			if (ar[i + 2] == ar[i] && ar[i + 3] - ar[i + 1] == 1)
+				res += 1;
+			if (ar[i + 4] - ar[i] == 1 && ar[i + 1] == ar[i + 5])
+				res += 2;
+			if (ar[i + 4] == ar[i] && ar[i + 5] - ar[i + 1] == 1)
+				res += 1;
 		}
 	}
-	return (0);
+	return (res);
 }
 
-int		check_tetraminos(int ***table)
+char	check_area(char *ar)
 {
 	int		sum;
 	int		i;
 	int		j;
 
-	i = -1;
+	i = 2;
 	sum = 0;
-	while (++i < 4)
+	while (i < 8)
 	{
-		j = -1;
-		while (++j < 4)
+		j = 0;
+		while (j < i)
 		{
-			if (*(*(*table + i) + j))
-			{
-				*(*(*table + i) + j) += check_spot(*table, i, j);
-				sum += *(*(*table + i) + j);
-			}
+			if (mod(ar[i] - ar[j]) == 1 && ar[i + 1] == ar[j + 1])
+				sum += 2;
+			if (mod(ar[i + 1] - ar[j + 1]) == 1 && ar[i] == ar[j])
+				sum += 1;
+			j += 2;
 		}
+		i += 2;
 	}
-	if (sum == 6)
+	if (sum > 3 && sum < 6)
 		return (1);
-	else if (sum == 8)
-		return (check_square_tetramino(*table));
+	else if (sum == 6)
+		return (check_6(ar));
+	else if (sum == 3)
+		return (check_3(ar));
 	else
 		return (0);
 }
