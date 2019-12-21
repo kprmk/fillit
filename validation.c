@@ -6,7 +6,7 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 15:53:40 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/16 21:48:14 by mbrogg           ###   ########.fr       */
+/*   Updated: 2019/12/21 19:53:35 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		check_input_data(char *file_name, int *size)
 	return (1);
 }
 
-void	fill_double_array(char ***p_double_array, int *ar, char *str, int *i)
+char	fill_lst(t_lst **head, int *ar, char *str, int *i)
 {
 	int		j;
 
@@ -70,42 +70,41 @@ void	fill_double_array(char ***p_double_array, int *ar, char *str, int *i)
 	if (!(*str))
 	{
 		*i = 0;
-		(*ar)++;
-		*(ar + 1) = 0;
-		return ;
+		ar[0] = 0;
+		return (1);
 	}
+	if (!(*i))
+		if (!lst_push_front(head, lst_new(ar[1]++)))
+			return (0);
 	while (str[++j])
 	{
 		if (str[j] == '#')
 		{
-			*(*(*p_double_array + *ar) + (*(ar + 1))++) = *i;
-			*(*(*p_double_array + *ar) + (*(ar + 1))++) = j;
+			(*head)->coords[ar[0]++] = *i;
+			(*head)->coords[ar[0]++] = j;
+			// *(*(*p_double_array + *ar) + (*(ar + 1))++) = *i;
+			// *(*(*p_double_array + *ar) + (*(ar + 1))++) = j;
 		}
 	}
 	(*i)++;
+	return (1);
 }
 
-char	**second_pass(char *file_name, int amount)
+t_lst	*second_pass(char *file_name, t_lst **head)
 {
-	char	**double_array;
 	int		fd;
 	char	*str;
 	int		i;
-	int		array_coord[2];
+	int		array[2];
 
 	i = -1;
-	array_coord[0] = 0;
-	array_coord[1] = 0;
-	if (!(double_array = (char **)malloc(sizeof(char) * (amount + 1))))
-		return (NULL);
-	while (++i < amount)
-		*(double_array + i) = (char *)malloc(sizeof(char) * 8);
-	*(double_array + i) = NULL;
+	array[0] = 0;
+	array[1] = 0;
 	if ((fd = open((const char *)file_name, O_RDONLY)) == -1)
 		return (NULL);
 	i = 0;
 	while (get_next_line(fd, &str))
-		fill_double_array(&double_array, array_coord, str, &i);
+		fill_lst(head, array, str, &i);
 	close(fd);
-	return (double_array);
+	return (*head);
 }

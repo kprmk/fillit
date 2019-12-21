@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 21:16:59 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/16 22:34:07 by eshor            ###   ########.fr       */
+/*   Updated: 2019/12/20 19:43:57 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			solve(char ***map, int map_size, char **tab, int num, int total)
 		if (can_push_tetri(map, map_size, tab[num], curr_xy) == 0)
 		{
 			push_tetri(map, tab[num], curr_xy, num);
-			print_map(*map, map_size);
+			// print_map(*map, map_size);
 			if (num + 1 < total)
 			{
 				if ((can_tetri_be_in_map(*map, map_size, tab[num + 1])) == 0)

@@ -6,7 +6,7 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 18:51:44 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/16 22:12:26 by mbrogg           ###   ########.fr       */
+/*   Updated: 2019/12/21 19:53:05 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,19 @@
 #include <stdio.h>
 //
 
+typedef	struct	s_lst
+{
+	int 			index_number:7;
+	char            *coords;
+	struct s_lst	*next;
+}				t_lst;
+
+t_lst	*lst_new(int counter);
+int 	lst_push_front(t_lst **head, t_lst *new);
+void	lst_del(t_lst **head);
+void    lst_print(t_lst *head);
+void    lst_reverse(t_lst **head);
+
 void	print_table(int **table);
 int		**init_table(int **table);
 int		check_spot(int **table, int i, int j);
@@ -26,8 +39,8 @@ int		check_square_tetramino(int **table);
 int		check_tetraminos(int ***table);
 int		check_input_with_table(int ***table, char *str, int *i, int *size);
 int		check_input_data(char *file_name, int *size);
-void	fill_double_array(char ***p_double_array, int *ar, char *str, int *i);
-char	**second_pass(char *file_name, int amount);
+char	fill_lst(t_lst **head, int *ar, char *str, int *i);
+t_lst	*second_pass(char *file_name, t_lst **head);
 int		ft_sqrt(int nbr);
 void	find_min_coords(char *line, int *min_x, int *min_y);
 int		print_map(char **map, int size);
