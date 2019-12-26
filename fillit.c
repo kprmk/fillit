@@ -3,23 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 21:16:59 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/20 19:43:57 by mbrogg           ###   ########.fr       */
+/*   Updated: 2019/12/23 16:18:03 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-int			solve(char ***map, int map_size, char **tab, int num, int total)
+/*
+int			solve(char **map, int map_size, t_list *node)
 {
-	int *curr_xy;
+	int curr_pos;
 
-	curr_xy = (int*)malloc(sizeof(int) * 2);
-	curr_xy[0] = 0;
-	curr_xy[1] = 0;
-	while (curr_xy != NULL)
+	curr_pos = 0;
+	while (curr_xy != -1)
 	{
 		if (can_push_tetri(map, map_size, tab[num], curr_xy) == 0)
 		{
@@ -41,21 +39,30 @@ int			solve(char ***map, int map_size, char **tab, int num, int total)
 			else
 				return (0);
 		}
-		curr_xy = find_next_upperleft(map_size, curr_xy);
+		curr_pos = find_next_upperleft(map_size, curr_pos);
 	}
 	return (-1);
 }
-
-void		bruteforce(char **tab, int tetri_nbr)
+*/
+void		bruteforce(t_lst *node,  int tetri_nbr)
 {
-	char	**map;
+	short	*map;
 	int		j;
 	int		map_size;
 	
-	move_upleft(&tab, tetri_nbr);
 	map_size = ft_sqrt(tetri_nbr * 4);
 	map = create_map(map_size);
 	print_map(map, map_size);
+	change_map_size_for_coords(&(node->coords), 4, map_size);
+	change_map_size_for_coords(&(node->next->coords), 4, map_size);
+	lst_print(node);
+	push_tetri(&map, node->next->coords, 4);
+	print_map(map, map_size);
+	clear_tetri(&map, node->next->coords, 4);
+	print_map(map, map_size);
+//	print_map(map, map_size);
+//	solve(&map, map_size, node);
+	/*
 	j = -1;
 	while (j == -1)
 	{
@@ -69,5 +76,5 @@ void		bruteforce(char **tab, int tetri_nbr)
 		}
 		else
 			print_map(map, map_size);
-	}
+	}*/
 }

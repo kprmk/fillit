@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 18:26:29 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/21 23:37:40 by mbrogg           ###   ########.fr       */
+/*   Updated: 2019/12/23 14:30:46 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,16 @@ void    lst_reverse(t_lst **head)
         prev = cur;
     }
     *head = cur;
+}
+
+void    lst_foreach(t_lst *head, void (*f)(void *))
+{
+    t_lst	*current;
+
+	current = head;
+	while (current)
+	{
+		(*f)(&(current->coords));
+		current = current->next;
+	}
 }

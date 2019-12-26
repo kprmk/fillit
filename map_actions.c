@@ -3,76 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   map_actions.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 21:31:08 by eshor             #+#    #+#             */
-/*   Updated: 2019/12/16 21:34:45 by mbrogg           ###   ########.fr       */
+/*   Updated: 2019/12/23 16:01:43 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		print_map(char **map, int size)
+int		print_map(short *map, int size)
 {
 	int i;
 	int j;
 
 	if (!map)
 		return (-1);
-	j = 0;
 	i = 0;
-	while (i < size)
+	j = 0;
+	while (i < size * size)
 	{
 		j = 0;
 		while (j < size)
 		{
-			ft_putchar(map[i][j]);
+			if (map[i] == 0)
+				ft_putchar('.');
+			else
+				ft_putchar('#');
+			i++;
 			j++;
 		}
 		ft_putchar('\n');
-		i++;
 	}
 	ft_putchar('\n');
 	return (0);
 }
 
-char	**create_map(int size)
+short		*create_map(int size)
 {
-	int		i;
-	int		j;
-	char	**map;
+	short *map;
+	int i;
 
-	i = 0;
-	j = 0;
-	if (!(map = (char**)malloc(sizeof(char*) * size)))
+	if (!(map = (short*)malloc(sizeof(short) * size * size)))
 		return (NULL);
-	while (i < size)
+	i = 0;
+	while (i < size * size)
 	{
-		if (!(map[i] = (char*)malloc(sizeof(char) * size)))
-		{
-			delete_map(&map, i);
-			return (NULL);
-		}
-		j = 0;
-		while (j < size)
-		{
-			map[i][j] = '.';
-			j++;
-		}
+		map[i] = 0;
 		i++;
 	}
 	return (map);
 }
 
-void	delete_map(char ***map, int map_size)
+void	delete_map(short **map)
 {
-	int i;
-
-	i = 0;
-	while (i < map_size)
-	{
-		free((*map)[i]);
-		i++;
-	}
+	free(*map);
 	*map = NULL;
 }
