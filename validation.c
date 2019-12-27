@@ -39,12 +39,11 @@ int		check_input_with_lst(t_lst **head, char *str, int *i, char *ar)
 			return (0);
 	while (str[++x])
 	{
-		if (str[x] == '#' && ar[0] < 8)
+		if (str[x] == '#' && ar[0] < 4)
 		{
-			(*head)->coords[ar[0]++] = *i;
-			(*head)->coords[ar[0]++] = x;
+			(*head)->coords[ar[0]++] = *i * 4 + x;
 		}
-		else if (str[x] != '.' || (ar[0] > 7 && str[x] == '#'))
+		else if (str[x] != '.' || (ar[0] > 3 && str[x] == '#'))
 			return (0);
 	}
 	if (!check_of_ending_block(head, i, ar))
@@ -63,6 +62,9 @@ int		validation(char *file_name, t_lst **head)
 	int		fd;
 	int		i;
 	t_lst	*temp;
+/*
+** Кажется, нормой запрещены такие объявления, как ниже, но норминетта не ругается
+*/
 	char	ar[2];
 
 	ar[0] = 0;

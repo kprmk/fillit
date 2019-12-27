@@ -39,10 +39,10 @@ int		main(void)
 	amount = 2;
 	head = lst_new(0);
 	
-	head->coords[0] = 0;
-	head->coords[1] = 4;
-	head->coords[2] = 8;
-	head->coords[3] = 12;
+	head->coords[0] = 1;
+	head->coords[1] = 5;
+	head->coords[2] = 9;
+	head->coords[3] = 13;
 //	write_coords(head, "3700");
 	head->next = lst_new(1);
 	write_coords(head->next, "0145");
@@ -61,7 +61,7 @@ int		main(void)
 //		lst_print(head);
 		lst_foreach(head, (void (*))move_upleft);
 		lst_print(head);
-         bruteforce(head, amount);
+//         bruteforce(head, amount);
 	}*/
 	return (0);
 }

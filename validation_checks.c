@@ -77,7 +77,7 @@ char	check_area(char *ar)
 
 	i = 2;
 	sum = 0;
-	while (i < 8)
+	while (i < 4)
 	{
 		j = 0;
 		while (j < i)
