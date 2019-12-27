@@ -28,7 +28,7 @@ static int	check_null(const int fd, char **p_null, char **line)
 		return (0);
 	if (!(*line = ft_strnew(0)))
 		return (0);
-	if (fd >= 0 && fd < OPEN_MAX)
+	if (fd >= 0 && fd < _SC_OPEN_MAX)
 	{
 		if (read(fd, test, 0) == -1)
 			return (0);

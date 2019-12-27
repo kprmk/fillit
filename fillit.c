@@ -11,30 +11,29 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
-/*
-int			solve(char **map, int map_size, t_list *node)
+
+int			solve(short **map, int map_size, t_lst *node)
 {
 	int curr_pos;
 
 	curr_pos = 0;
-	while (curr_xy != -1)
+	while (curr_pos != -1)
 	{
-		if (can_push_tetri(map, map_size, tab[num], curr_xy) == 0)
+		if (can_push_tetri(*map, map_size, node->coords, curr_pos) == 0)
 		{
-			push_tetri(map, tab[num], curr_xy, num);
+			push_tetri(map, node->coords, curr_pos);
 			// print_map(*map, map_size);
-			if (num + 1 < total)
+			if (node->next)
 			{
-				if ((can_tetri_be_in_map(*map, map_size, tab[num + 1])) == 0)
+				if ((can_tetri_be_in_map(*map, map_size, node->next->coords)) == 0)
 				{
-					if ((solve(map, map_size, tab, num + 1, total)) == 0)
+					if ((solve(map, map_size, node->next)) == 0)
 						return (0);
 					else
-						clear_tetri(map, tab[num], curr_xy[0], curr_xy[1]);
-					
+						clear_tetri(map, node->coords, curr_pos);		
 				}
 				else
-					clear_tetri(map, tab[num], curr_xy[0], curr_xy[1]);
+					clear_tetri(map, node->coords, curr_pos);
 			}
 			else
 				return (0);
@@ -43,7 +42,7 @@ int			solve(char **map, int map_size, t_list *node)
 	}
 	return (-1);
 }
-*/
+
 void		bruteforce(t_lst *node,  int tetri_nbr)
 {
 	short	*map;
@@ -53,28 +52,18 @@ void		bruteforce(t_lst *node,  int tetri_nbr)
 	map_size = ft_sqrt(tetri_nbr * 4);
 	map = create_map(map_size);
 	print_map(map, map_size);
-	change_map_size_for_coords(&(node->coords), 4, map_size);
-	change_map_size_for_coords(&(node->next->coords), 4, map_size);
-	lst_print(node);
-	push_tetri(&map, node->next->coords, 4);
-	print_map(map, map_size);
-	clear_tetri(&map, node->next->coords, 4);
-	print_map(map, map_size);
-//	print_map(map, map_size);
-//	solve(&map, map_size, node);
-	/*
 	j = -1;
 	while (j == -1)
 	{
-		j = solve(&map, map_size, tab, 0, tetri_nbr);
+		j = solve(&map, map_size, node);
 		if (j == -1)
 		{
-			delete_map(&map, map_size);
+			delete_map(&map);
 			map_size++;
 			map = create_map(map_size);
 			printf("%s\n", "map too small");
 		}
 		else
 			print_map(map, map_size);
-	}*/
+	}
 }

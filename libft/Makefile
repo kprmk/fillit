@@ -12,7 +12,7 @@
 
 NAME = libft.a
 COMPILER = gcc
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -g
 INC = -I includes/
 SRCS = ft_atoi.c \
 	ft_strmap.c \

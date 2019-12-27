@@ -43,12 +43,12 @@ int		print_map(short *map, int size);
 short	*create_map(int size);
 void	delete_map(short **map);
 void	move_upleft(char **coords);
-int		can_push_tetri(short *map, int map_size, char *coord, int *curr_pos);
+int		can_push_tetri(short *map, int map_size, char *coord, int curr_pos);
 void	clear_tetri(short **map, char *coord, int curr_pos);
 void	push_tetri(short **map, char *coord, int curr_pos);
-int		can_tetri_be_in_map(char **map, int map_size, char *coord);
+int		can_tetri_be_in_map(short *map, int map_size, char *coord);
 int		find_next_upperleft(int map_size, int curr_pos);
-int		solve(char ***map, int map_size, char **tab, int num, int total);
+int		solve(short **map, int map_size, t_lst *node);
 void	bruteforce(t_lst *node,  int tetri_nbr);
 
 void	change_map_size_for_coords(char **coords, int src_size, int dest_size);

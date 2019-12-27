@@ -39,10 +39,10 @@ int		main(void)
 	amount = 2;
 	head = lst_new(0);
 	
-	head->coords[0] = 8;
-	head->coords[1] = 9;
-	head->coords[2] = 12;
-	head->coords[3] = 13;
+	head->coords[0] = 0;
+	head->coords[1] = 4;
+	head->coords[2] = 8;
+	head->coords[3] = 12;
 //	write_coords(head, "3700");
 	head->next = lst_new(1);
 	write_coords(head->next, "0145");
@@ -51,7 +51,7 @@ int		main(void)
 //	lst_print(head);
 	move_upleft(&(head->coords));
 	lst_print(head);
-//	bruteforce(head, amount);
+	bruteforce(head, amount);
 /*
 	if (!(amount = validation(file_name, &head)))
 		ft_putstr("ERROR\n");
