@@ -6,7 +6,7 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 18:51:44 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/28 17:46:52 by mbrogg           ###   ########.fr       */
+/*   Updated: 2019/12/28 18:21:05 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	lst_del(t_lst **head);
 void    lst_print(t_lst *head);
 void    lst_reverse(t_lst **head);
 
-int		check_input_with_lst(t_lst **head, char *str, char **ar);
+int		check_input_with_lst(t_lst **head, char *str, int *i, char *ar);
 int		validation(char *file_name, t_lst **head);
-char	check_area(char *ar);
+char	check_area(char *ar, int i, int j);
 
 int		ft_sqrt(int nbr);
 void	find_min_coords(char *line, int *min_x, int *min_y);
