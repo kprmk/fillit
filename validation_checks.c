@@ -6,7 +6,7 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 23:21:31 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/28 18:20:55 by mbrogg           ###   ########.fr       */
+/*   Updated: 2019/12/28 19:08:12 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	mod(int a)
 	return (a < 0 ? -a : a);
 }
 
-char	check_6(char *ar)
+char	check_6(short *ar)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ char	check_6(char *ar)
 	return (1);
 }
 
-char	check_3(char *ar)
+char	check_3(short *ar)
 {
 	int		i;
 
@@ -47,29 +47,7 @@ char	check_3(char *ar)
 	return (1);
 }
 
-char	check_point_spot(char *ar, int i)
-{
-	int		res;
-
-	res = 0;
-	if (ar[i + 1] < 4)
-	{
-		if (ar[i] < 4)
-		{
-			if (ar[i + 2] - ar[i] == 1 && ar[i + 1] == ar[i + 3])
-				res += 2;
-			if (ar[i + 2] == ar[i] && ar[i + 3] - ar[i + 1] == 1)
-				res += 1;
-			if (ar[i + 4] - ar[i] == 1 && ar[i + 1] == ar[i + 5])
-				res += 2;
-			if (ar[i + 4] == ar[i] && ar[i + 5] - ar[i + 1] == 1)
-				res += 1;
-		}
-	}
-	return (res);
-}
-
-char	check_area(char *ar, int i, int j)
+char	check_area(short *ar, char i, char j)
 {
 	int		sum;
 

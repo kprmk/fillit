@@ -6,17 +6,19 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 15:53:40 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/28 18:20:38 by mbrogg           ###   ########.fr       */
+/*   Updated: 2019/12/28 19:28:56 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	check_of_ending_block(t_lst **head, char **mas, int *i, char *ar)
+char	check_of_ending_block(t_lst **head, short **mas, int *i, char *ar)
 {
-	int		x;
-	int		y;
+	char	x;
+	char	y;
+	char	f;
 
+	f = 0;
 	if (++(*i) == 4)
 	{
 		if (!check_area((*head)->coords, x, y))
@@ -31,9 +33,14 @@ char	check_of_ending_block(t_lst **head, char **mas, int *i, char *ar)
 		while (y < 8)
 		{
 			if (y < 4)
-				*(*mas + y) = *(*mas + x);
+			{
+				if (*(*mas + x) + 4 * f <= *(*mas + y - 1) && y)
+					f++;
+				*(*mas + y) = *(*mas + x) + 4 * f;
+				// *(*mas + y) = *(*mas + x);
+			}
 			else
-				*(*mas + y) = '\0';
+				*(*mas + y) = 0;
 			y++;
 			x += 2;
 		}
