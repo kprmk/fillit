@@ -6,7 +6,7 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 18:26:29 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/21 23:37:40 by mbrogg           ###   ########.fr       */
+/*   Updated: 2019/12/28 16:52:00 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ t_lst	*lst_new(int counter)
 	if (!(res= (t_lst *)malloc(sizeof(t_lst))))
 		return (NULL);
 	res->index_number = counter;
-    if (!(res->coords = (char *)malloc(sizeof(char) * 8)))
+    if (!(res->coords = (char *)malloc(sizeof(char) * 4)))
         return (NULL);
-    while (++i < 8)
+    while (++i < 4)
         res->coords[i] = 0;
 	res->next = NULL;
 	return (res);
@@ -68,7 +68,7 @@ void    lst_print(t_lst *head)
         i = -1;
         ft_putnbr(head->index_number);
         ft_putstr("\t\b\b\b\b\b->  ");
-        while (++i < 8)
+        while (++i < 4)
             ft_putnbr(head->coords[i]);
         ft_putchar('\n');
         head = head->next;
