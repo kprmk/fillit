@@ -3,76 +3,110 @@
 /*                                                        :::      ::::::::   */
 /*   map_actions.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 21:31:08 by eshor             #+#    #+#             */
-/*   Updated: 2019/12/16 21:34:45 by mbrogg           ###   ########.fr       */
+/*   Updated: 2019/12/23 16:01:43 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		print_map(char **map, int size)
+int		print_map(short *map, int size)
 {
 	int i;
 	int j;
 
 	if (!map)
 		return (-1);
-	j = 0;
 	i = 0;
-	while (i < size)
+	j = 0;
+	while (i < size * size)
 	{
 		j = 0;
 		while (j < size)
 		{
-			ft_putchar(map[i][j]);
+			if (map[i] == 0)
+				ft_putchar('.');
+			else
+				ft_putchar('#');
+			i++;
 			j++;
 		}
 		ft_putchar('\n');
-		i++;
 	}
 	ft_putchar('\n');
 	return (0);
 }
 
-char	**create_map(int size)
+short		*create_map(int size)
 {
-	int		i;
-	int		j;
-	char	**map;
+	short *map;
+	int i;
 
-	i = 0;
-	j = 0;
-	if (!(map = (char**)malloc(sizeof(char*) * size)))
+	if (!(map = (short*)malloc(sizeof(short) * size * size)))
 		return (NULL);
-	while (i < size)
+	i = 0;
+	while (i < size * size)
 	{
-		if (!(map[i] = (char*)malloc(sizeof(char) * size)))
-		{
-			delete_map(&map, i);
-			return (NULL);
-		}
-		j = 0;
-		while (j < size)
-		{
-			map[i][j] = '.';
-			j++;
-		}
+		map[i] = 0;
 		i++;
 	}
 	return (map);
 }
 
-void	delete_map(char ***map, int map_size)
+void	delete_map(short **map)
 {
-	int i;
-
-	i = 0;
-	while (i < map_size)
-	{
-		free((*map)[i]);
-		i++;
-	}
+	free(*map);
 	*map = NULL;
+}
+
+void	print_charmap(char **map,  int map_size)
+{
+	int x;
+	int y;
+
+	y = 0;
+	while (y < map_size)
+	{
+		x = 0;
+		while (x < map_size)
+		{
+			ft_putchar(map[y][x]);
+			x++;
+		}
+		ft_putchar('\n');
+		y++;
+	}
+}
+
+int		print_with_letters(t_lst *head, int map_size)
+{
+	int x;
+	int y;
+	char **letter_map;
+
+	if (!(letter_map = ((char**)malloc(sizeof(char*) * map_size * map_size))))
+		return (-1);
+	y = -1;
+	while (y++ < map_size)
+	{
+		if (!(letter_map[y] = (char*)malloc(sizeof(char) * map_size)))
+			return (-1);
+		x = -1;
+		while (x++ < map_size)
+			letter_map[y][x] = '.';	
+	}
+	while (head)
+	{
+		x = 0;
+		while (x < 4)
+		{
+			letter_map[((head->coords)[x] + head->upperleft) / map_size][((head->coords)[x] + head->upperleft) % map_size] = 'A' + head->index_number;
+			x++;
+		}
+		head = head->next;
+	}
+	print_charmap(letter_map, map_size);
+	return (0);
 }

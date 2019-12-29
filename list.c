@@ -73,6 +73,9 @@ void    lst_print(t_lst *head)
             ft_putnbr(head->coords[i]);
             ft_putstr("\t");
         }
+        ft_putnbr(head->index_number);
+        ft_putchar('\t');
+        ft_putnbr(head->upperleft);
         ft_putchar('\n');
         head = head->next;
     }
@@ -95,4 +98,16 @@ void    lst_reverse(t_lst **head)
         prev = cur;
     }
     *head = cur;
+}
+
+void    lst_foreach(t_lst *head, void (*f)(void *))
+{
+    t_lst	*current;
+
+	current = head;
+	while (current)
+	{
+		(*f)(&(current->coords));
+		current = current->next;
+	}
 }

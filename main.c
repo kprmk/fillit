@@ -26,7 +26,7 @@ int		main(void)
 	{
 		ft_putstr("SUCCESS\n");
 		lst_print(head);
-        // bruteforce(double_array, i);
+        bruteforce(head, amount);
 	}
 	return (0);
 }

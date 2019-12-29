@@ -21,20 +21,3 @@ int		ft_sqrt(int nbr)
 		result++;
 	return (result);
 }
-
-void	find_min_coords(char *line, int *min_x, int *min_y)
-{
-	int j;
-
-	j = 0;
-	*min_x = 3;
-	*min_y = 3;
-	while (j < 8)
-	{
-		if (line[j] < *min_x)
-			*min_x = line[j];
-		if (line[j + 1] < *min_y)
-			*min_y = line[j + 1];
-		j += 2;
-	}
-}
