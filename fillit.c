@@ -17,7 +17,7 @@ int			solve(short **map, int map_size, t_lst **node, int num)
 	int curr_pos;
 
 	curr_pos = 0;
-	while (curr_pos != -1)
+	while (curr_pos < map_size * map_size - 3)
 	{
 		if (can_push_tetri(*map, map_size, (*node)->coords, curr_pos) == 0)
 		{
@@ -38,7 +38,7 @@ int			solve(short **map, int map_size, t_lst **node, int num)
 			else
 				return (0);
 		}
-		curr_pos = find_next_upperleft(map_size, curr_pos);
+		curr_pos++;
 	}
 	return (-1);
 }
@@ -52,7 +52,6 @@ void		bruteforce(t_lst *node,  int tetri_nbr)
 	
 	map_size = ft_sqrt(tetri_nbr * 4);
 	map = create_map(map_size);
-//	print_map(map, map_size);
 	lst_foreach(node, (void (*)(void *))move_upleft);
 	temp = node;
 	while (temp)
@@ -70,16 +69,16 @@ void		bruteforce(t_lst *node,  int tetri_nbr)
 			map_size++;
 			map = create_map(map_size);
 			temp = node;
-			while (temp->next)
+			while (temp)
 			{
 				change_map_size_for_coords(&(temp->coords), map_size - 1, map_size);
 				temp = temp->next;
 			}
-			printf("%s\n", "map too small");
 		}
 //		else
 //			print_map(map, map_size);
 	}
 //	lst_print(node);
-	print_with_letters(node, map_size);
+	if (print_with_letters(node, map_size) == -1)
+		ft_putstr("ERROR\n");
 }
