@@ -48,7 +48,6 @@ int		can_push_tetri(short *map, int map_size, short *coord, int curr_pos);
 void	clear_tetri(short **map, t_lst **node, int curr_pos);
 void	push_tetri(short **map, t_lst **node, int curr_pos, int num);
 int		can_tetri_be_in_map(short *map, int map_size, short *coord);
-int		find_next_upperleft(int map_size, int curr_pos);
 int		solve(short **map, int map_size, t_lst **node,  int num);
 void	bruteforce(t_lst *node,  int tetri_nbr);
 
