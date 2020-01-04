@@ -6,7 +6,7 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 18:51:44 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/28 19:08:17 by mbrogg           ###   ########.fr       */
+/*   Updated: 2020/01/04 19:45:05 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ typedef	struct	s_lst
 {
 	int 			index_number:6;
 	int				upperleft;
-	short            *coords;
+	int				deep:3;
+	int				l:3;
+	int				r:3;
+	short			*coords;
 	struct s_lst	*next;
 }				t_lst;
 

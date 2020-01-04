@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tetri_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 22:01:55 by eshor             #+#    #+#             */
-/*   Updated: 2019/12/23 16:21:54 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/04 19:50:46 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,28 @@ int		can_push_tetri(short *map, int map_size, short *coord, int curr_pos)
 	int str_num;
 
 	i = 0;
+	// while (i < 4)
+	// {
+	// 	if (map[coord[i] + curr_pos] == 1 || coord[i] + curr_pos  > map_size * map_size - 1)
+	// 		return (-1);
+	// 	if (curr_pos / map_size != ((coord[i] % map_size + curr_pos) / map_size))
+	// 		return (-1);
+	// 	if ()
+	// 	i++;
+	// }
+	if (coord[3] + curr_pos  > map_size * map_size - 1)
+		return (-1);
 	while (i < 4)
 	{
 		if (map[coord[i] + curr_pos] == 1)
 			return (-1);
-		if (coord[i] + curr_pos  > map_size * map_size - 1)
-			return (-1);
-		if ( curr_pos / map_size != ((coord[i] % map_size + curr_pos) / map_size))
-			return (-1);
 		i++;
 	}
+	printf("f %d s %d\n", curr_pos / map_size, (coord[i] % map_size + curr_pos) / map_size);
+	if (curr_pos / map_size != ((coord[i] % map_size + curr_pos) / map_size))
+		return (-1);
+	i++;
+	
 	return (0);
 }
 

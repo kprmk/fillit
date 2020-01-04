@@ -6,7 +6,7 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 18:26:29 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/28 19:20:24 by mbrogg           ###   ########.fr       */
+/*   Updated: 2020/01/04 19:40:48 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,17 @@ void    lst_print(t_lst *head)
             ft_putnbr(head->coords[i]);
             ft_putstr("\t");
         }
-        ft_putnbr(head->index_number);
-        ft_putchar('\t');
-        ft_putnbr(head->upperleft);
+        printf("%d %d %d\n", head->l, head->r, head->deep);
+        // ft_putnbr(head->l);
+        // ft_putstr("\t\b");
+        // ft_putnbr(head->r);
+        // ft_putstr("\t\b");
+        // ft_putnbr(head->deep);
+        // ft_putstr("\t\b");
+        
+        // ft_putnbr(head->index_number);
+        // ft_putstr("\t\b");
+        // ft_putnbr(head->upperleft);
         ft_putchar('\n');
         head = head->next;
     }

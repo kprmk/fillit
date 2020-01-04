@@ -6,11 +6,33 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 15:53:40 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/28 19:28:56 by mbrogg           ###   ########.fr       */
+/*   Updated: 2020/01/04 19:44:23 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+void	deep_and_hor(t_lst **head, short *mas)
+{
+	short min;
+	short max;
+	char i;
+
+	i = 3;
+	min = mas[1];
+	max = mas[1];
+	while (i <= 7)
+	{
+		if (mas[i] < min)
+			min = mas[i];
+		if (mas[i] > max)
+			max = mas[i];
+		i += 2;
+	}
+	(*head)->deep = mas[6] - mas[0];
+	(*head)->r = max - mas[1];
+	(*head)->l = mas[1] - min;
+}
 
 char	check_of_ending_block(t_lst **head, short **mas, int *i, char *ar)
 {
@@ -25,11 +47,12 @@ char	check_of_ending_block(t_lst **head, short **mas, int *i, char *ar)
 			return (0);
 		ar[0] = 0;
 		ar[1]++;
+		deep_and_hor(head, *mas);
 		if (!lst_push_front(head, lst_new(ar[1])))
 			return (0);
 		*i = -1;
 		x = 1;
-		y = 0;
+		y = 0;		
 		while (y < 8)
 		{
 			if (y < 4)
