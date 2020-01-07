@@ -6,7 +6,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceRoot}/a.out",
-            "preLaunchTask": "FIL",
+            // "preLaunchTask": "FIL",
             "logging": {
                 "moduleLoad": false,
                 "programOutput": true,
@@ -17,7 +17,7 @@
             "stopAtEntry": false,
             "cwd": "${workspaceRoot}",
             "environment": [],
-            "externalConsole": true, // set true to enable keyboard input
+            "externalConsole": false, 
             "osx": {
                 "MIMode": "lldb"
             }

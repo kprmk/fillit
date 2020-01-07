@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tetri_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kprmk <kprmk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 22:01:55 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/04 19:50:46 by mbrogg           ###   ########.fr       */
+/*   Updated: 2020/01/07 22:31:51 by kprmk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** (coord[i] % map_size + curr_pos) / map_size - строка, на которую пытаемся поставить.
 ** если они не совпадают, значит фигурка разъехалась.
 */
-int		can_push_tetri(short *map, int map_size, short *coord, int curr_pos)
+int		can_push_tetri(short *map, int map_size, short *coord, int curr_pos, int r)
 {
 	int i;
 	int str_num;
@@ -36,19 +36,21 @@ int		can_push_tetri(short *map, int map_size, short *coord, int curr_pos)
 	// 	if ()
 	// 	i++;
 	// }
-	if (coord[3] + curr_pos  > map_size * map_size - 1)
-		return (-1);
 	while (i < 4)
 	{
 		if (map[coord[i] + curr_pos] == 1)
 			return (-1);
 		i++;
 	}
-	printf("f %d s %d\n", curr_pos / map_size, (coord[i] % map_size + curr_pos) / map_size);
+	if (coord[3] + curr_pos  > map_size * map_size - 1)
+		return (-1);
+	// printf("f %d s %d\n", curr_pos / map_size, (coord[i] % map_size + curr_pos) / map_size);
 	if (curr_pos / map_size != ((coord[i] % map_size + curr_pos) / map_size))
 		return (-1);
-	i++;
-	
+		printf("!!! %d !!! %d \n", (coord[0] + curr_pos) % map_size, r);
+	if ((coord[0] + coord[5] + curr_pos) % map_size >= map_size - 1 
+		|| (coord[0] + curr_pos) % map_size >= map_size - r)
+		return (-1);
 	return (0);
 }
 
@@ -86,17 +88,17 @@ void	push_tetri(short **map, t_lst **node, int curr_pos, int num)
 /*
 **Просто ходим по всем клеткам и смотрим, можно ли туда пихнуть фигурку
 */
-int		can_tetri_be_in_map(short *map, int map_size, short *coord)
-{
-	int		i;
-	int		*curr_xy;
+// int		can_tetri_be_in_map(short *map, int map_size, short *coord)
+// {
+// 	int		i;
+// 	int		*curr_xy;
 
-	i = 0;
-	while (i < map_size * map_size - 1)
-	{
-		if (can_push_tetri(map, map_size, coord, i) == 0)
-			return (0);
-		i++;
-	}
-	return (-1);
-}
+// 	i = 0;
+// 	while (i < map_size * map_size - 1)
+// 	{
+// 		if (can_push_tetri(map, map_size, coord, i) == 0)
+// 			return (0);
+// 		i++;
+// 	}
+// 	return (-1);
+// }

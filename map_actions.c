@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_actions.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kprmk <kprmk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 21:31:08 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/04 20:03:33 by mbrogg           ###   ########.fr       */
+/*   Updated: 2020/01/07 21:57:09 by kprmk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,41 @@ void	print_charmap(char **map,  int map_size)
 	}
 }
 
-int		print_with_letters(t_lst *head, int map_size)
+
+void clearScreen()
 {
+  const char *CLEAR_SCREEN_ANSI = "\e[1;1H\e[2J";
+  write(STDOUT_FILENO, CLEAR_SCREEN_ANSI, 12);
+}
+
+int		amount_of_items(t_lst *head, t_lst *cur)
+{
+	int counter;
+	
+	counter = 0;
+	while (head != cur)
+	{
+		counter++;
+		head = head->next;
+	}
+	return (counter);
+}
+
+int		print_with_letters(t_lst *head, t_lst *cur, int map_size)
+{
+	int amount;
+	int counter;
+	usleep(900000); // 200000
 	int x;
 	int y;
 	char **letter_map;
-
+	
+	amount = amount_of_items(head, cur);
+	counter = 0;
+	ft_putstr("\e[1;1H\e[2J");
+	//
+	printf("Map size -> %d\n\n", map_size);
+	//
 	if (!(letter_map = ((char**)malloc(sizeof(char*) * map_size * map_size))))
 		return (-1);
 	y = -1;
@@ -97,7 +126,7 @@ int		print_with_letters(t_lst *head, int map_size)
 		while (x++ < map_size)
 			letter_map[y][x] = '.';	
 	}
-	while (head)
+	while (head && counter++ <= amount)
 	{
 		x = 0;
 		while (x < 4)

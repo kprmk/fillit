@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kprmk <kprmk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 18:51:44 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/04 19:45:05 by mbrogg           ###   ########.fr       */
+/*   Updated: 2020/01/07 22:27:45 by kprmk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 //
 #include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 //
 
 typedef	struct	s_lst
@@ -47,15 +49,15 @@ int		print_map(short *map, int size);
 short	*create_map(int size);
 void	delete_map(short **map);
 void	move_upleft(short **coords);
-int		can_push_tetri(short *map, int map_size, short *coord, int curr_pos);
+int		can_push_tetri(short *map, int map_size, short *coord, int curr_pos, int r);
 void	clear_tetri(short **map, t_lst **node, int curr_pos);
 void	push_tetri(short **map, t_lst **node, int curr_pos, int num);
 int		can_tetri_be_in_map(short *map, int map_size, short *coord);
-int		solve(short **map, int map_size, t_lst **node,  int num);
+int		solve(short **map, int map_size, t_lst **node,  int num, t_lst *print);
 void	bruteforce(t_lst *node,  int tetri_nbr);
 
 void	change_map_size_for_coords(short **coords, int src_size, int dest_size);
-int		print_with_letters(t_lst *head, int map_size);
+int		print_with_letters(t_lst *head, t_lst *cur, int map_size);
 void	print_charmap(char **map,  int map_size);
 
 #endif
