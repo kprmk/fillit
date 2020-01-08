@@ -6,7 +6,7 @@
 /*   By: kprmk <kprmk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 21:16:59 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/07 22:26:56 by kprmk            ###   ########.fr       */
+/*   Updated: 2020/01/08 13:14:02 by kprmk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 int			solve(short **map, int map_size, t_lst **node, int num, t_lst *print)
 {
 	int curr_pos;
+	int r_l[2];
 
+	r_l[0] = (*node)->r;
+	r_l[1] = (*node)->l;
 	curr_pos = 0;
 	while (curr_pos < map_size * map_size - 3)
 	{
-		if (can_push_tetri(*map, map_size, (*node)->coords, curr_pos, (*node)->r) == 0)
+		if (can_push_tetri(*map, map_size, (*node)->coords, curr_pos, r_l) == 0)
 		{
 			push_tetri(map, node, curr_pos, num);
-			print_with_letters(print, *node, map_size);
+			// print_with_letters(print, *node, map_size);
 			if ((*node)->next)
 			{
 				// if ((can_tetri_be_in_map(*map, map_size, (*node)->next->coords)) == 0)
@@ -40,7 +43,7 @@ int			solve(short **map, int map_size, t_lst **node, int num, t_lst *print)
 				else
 				{
 					clear_tetri(map, node, curr_pos);		
-					print_with_letters(print, *node, map_size);
+					// print_with_letters(print, *node, map_size);
 				}
 			}
 			else

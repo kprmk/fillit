@@ -6,7 +6,7 @@
 /*   By: kprmk <kprmk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 21:31:08 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/07 21:57:09 by kprmk            ###   ########.fr       */
+/*   Updated: 2020/01/08 13:12:39 by kprmk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int		print_with_letters(t_lst *head, t_lst *cur, int map_size)
 {
 	int amount;
 	int counter;
-	usleep(900000); // 200000
+	// usleep(200000); // 200000
 	int x;
 	int y;
 	char **letter_map;

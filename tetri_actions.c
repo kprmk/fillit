@@ -6,7 +6,7 @@
 /*   By: kprmk <kprmk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 22:01:55 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/07 22:31:51 by kprmk            ###   ########.fr       */
+/*   Updated: 2020/01/08 13:14:30 by kprmk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** (coord[i] % map_size + curr_pos) / map_size - строка, на которую пытаемся поставить.
 ** если они не совпадают, значит фигурка разъехалась.
 */
-int		can_push_tetri(short *map, int map_size, short *coord, int curr_pos, int r)
+int		can_push_tetri(short *map, int map_size, short *coord, int curr_pos, int *r_l)
 {
 	int i;
 	int str_num;
@@ -47,11 +47,21 @@ int		can_push_tetri(short *map, int map_size, short *coord, int curr_pos, int r)
 	// printf("f %d s %d\n", curr_pos / map_size, (coord[i] % map_size + curr_pos) / map_size);
 	if (curr_pos / map_size != ((coord[i] % map_size + curr_pos) / map_size))
 		return (-1);
-		printf("!!! %d !!! %d \n", (coord[0] + curr_pos) % map_size, r);
-	if ((coord[0] + coord[5] + curr_pos) % map_size >= map_size - 1 
-		|| (coord[0] + curr_pos) % map_size >= map_size - r)
+		// printf("!!! %d !!! %d !!!\n", (coord[0] + curr_pos) % map_size, map_size - r_l[0]);
+	if ((coord[0] + curr_pos) % map_size >= map_size - r_l[0])
+	{
+		// printf("\nTHE FIRST\n");
 		return (-1);
+	}
+	// printf("### %d ### %d ###\n", (coord[0] + curr_pos) - r_l[1] % map_size, map_size - r_l[0]);
+	if (((coord[0] + curr_pos - r_l[1]) % map_size > map_size - (r_l[0] + r_l[1] + 1)))
+	{
+		// printf("\nTHE SECOND\n");
+		return (-1);
+	}
+	
 	return (0);
+	
 }
 
 /*
