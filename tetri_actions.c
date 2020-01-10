@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tetri_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kprmk <kprmk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 22:01:55 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/08 13:14:30 by kprmk            ###   ########.fr       */
+/*   Updated: 2020/01/10 17:04:59 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,20 @@
 int		can_push_tetri(short *map, int map_size, short *coord, int curr_pos, int *r_l)
 {
 	int i;
-	int str_num;
 
 	i = 0;
-	// while (i < 4)
-	// {
-	// 	if (map[coord[i] + curr_pos] == 1 || coord[i] + curr_pos  > map_size * map_size - 1)
-	// 		return (-1);
-	// 	if (curr_pos / map_size != ((coord[i] % map_size + curr_pos) / map_size))
-	// 		return (-1);
-	// 	if ()
-	// 	i++;
-	// }
+/*
+	if (coord[3] + curr_pos > map_size * map_size - 1)
+		return (-1);
+	while (i < 4)
+	{
+		if (map[coord[i] + curr_pos] == 1)
+	 		return (-1);
+		if ((curr_pos + coord[i]) / map_size != (curr_pos / map_size) + (coord[i] / map_size))
+			return (-1);
+	 	i++;
+	 }
+*/	
 	while (i < 4)
 	{
 		if (map[coord[i] + curr_pos] == 1)
@@ -59,9 +61,7 @@ int		can_push_tetri(short *map, int map_size, short *coord, int curr_pos, int *r
 		// printf("\nTHE SECOND\n");
 		return (-1);
 	}
-	
 	return (0);
-	
 }
 
 /*
@@ -95,20 +95,30 @@ void	push_tetri(short **map, t_lst **node, int curr_pos, int num)
 		i++;
 	}
 }
-/*
-**Просто ходим по всем клеткам и смотрим, можно ли туда пихнуть фигурку
-*/
-// int		can_tetri_be_in_map(short *map, int map_size, short *coord)
-// {
-// 	int		i;
-// 	int		*curr_xy;
 
-// 	i = 0;
-// 	while (i < map_size * map_size - 1)
-// 	{
-// 		if (can_push_tetri(map, map_size, coord, i) == 0)
-// 			return (0);
-// 		i++;
-// 	}
-// 	return (-1);
-// }
+int		check_height(short *coords, int map_size)
+{
+	int i;
+	int length;
+	int min;
+	int max;
+
+	if (map_size > 3)
+		return (map_size);
+	i = 0;
+	min = 15;
+	max = 0;
+	while (i < 4)
+	{
+		if (coords[i] > max)
+			max = coords[i];
+		if (coords[i] < min)
+			min = coords[i];
+		i++;
+	}
+	length = max % 4 - min % 4 + 1;
+	if (length > map_size)
+		return (length);
+	else
+		return (map_size);
+}

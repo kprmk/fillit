@@ -3,30 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kprmk <kprmk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 16:14:40 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/07 22:15:39 by kprmk            ###   ########.fr       */
+/*   Updated: 2020/01/10 17:14:41 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		main(void)
+int		main(int argc, char **argv)
 {
-	char	file_name[] = "input.txt";
 	t_lst	*head;
 	int		amount;
 
 	head = NULL;
 	amount = 0;
-	if (!(amount = validation(file_name, &head)))
+	if (argc != 2)
+	{
+		ft_putstr("usage: fillit input_file\n");
+		return (0);
+	}
+	if (!(amount = validation(argv[1], &head)))
 		ft_putstr("ERROR\n");
 	else
 	{
 		ft_putstr("SUCCESS\n");
 		lst_print(head);
-        bruteforce(head, amount);
+		bruteforce(head, amount);
 	}
 	return (0);
 }

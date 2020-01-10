@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kprmk <kprmk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 15:53:40 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/07 22:25:52 by kprmk            ###   ########.fr       */
+/*   Updated: 2020/01/10 17:21:01 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	deep_and_hor(t_lst **head, short *mas)
 {
-	short min;
-	short max;
-	char i;
+	short	min;
+	short	max;
+	char	i;
 
 	i = 3;
 	min = mas[1];
@@ -54,7 +54,7 @@ char	check_of_ending_block(t_lst **head, short **mas, int *i, char *ar)
 			return (0);
 		*i = -1;
 		x = 1;
-		y = 0;		
+		y = 0;
 		while (y < 8)
 		{
 			if (y < 4)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_actions.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kprmk <kprmk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 21:31:08 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/08 13:12:39 by kprmk            ###   ########.fr       */
+/*   Updated: 2020/01/10 17:44:29 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,19 @@ short		*create_map(int size)
 void	delete_map(short **map)
 {
 	free(*map);
+	*map = NULL;
+}
+
+void	delete_charmap(char ***map,  int size)
+{
+	int i;
+
+	i = 0;
+	while (i < size)
+	{
+		free((*map)[i]);
+		i++;
+	}
 	*map = NULL;
 }
 
@@ -137,5 +150,6 @@ int		print_with_letters(t_lst *head, t_lst *cur, int map_size)
 		head = head->next;
 	}
 	print_charmap(letter_map, map_size);
+	delete_charmap(&letter_map, map_size);
 	return (0);
 }
