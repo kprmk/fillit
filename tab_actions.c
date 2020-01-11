@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 16:53:41 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/10 17:43:10 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/11 17:26:31 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	move_upleft(short **c)
 	int empty_rows;
 	int empty_columns;
 	int i;
-	int j;
 
 	i = 1;
 	empty_rows = 0;

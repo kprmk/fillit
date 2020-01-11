@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 15:53:40 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/11 17:18:07 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/11 17:28:18 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ char	check_of_ending_block(t_lst **head, short **mas, int *i, char *ar)
 	char	f;
 
 	f = 0;
+	x = 0;
+	y = 0;
 	if (++(*i) == 4)
 	{
 		if (!check_area((*head)->coords, x, y))
