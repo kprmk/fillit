@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 18:26:29 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/10 17:30:09 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/11 15:54:09 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,6 @@ void	lst_print(t_lst *head)
 			ft_putstr("\t");
 		}
 		printf("%d %d %d\n", head->l, head->r, head->deep);
-		// ft_putnbr(head->l);
-		// ft_putstr("\t\b");
-		// ft_putnbr(head->r);
-		// ft_putstr("\t\b");
-		// ft_putnbr(head->deep);
-		// ft_putstr("\t\b");
-
-		// ft_putnbr(head->index_number);
-		// ft_putstr("\t\b");
-		// ft_putnbr(head->upperleft);
 		ft_putchar('\n');
 		head = head->next;
 	}

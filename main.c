@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 16:14:40 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/10 17:14:41 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/11 15:59:19 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,9 @@ int		main(int argc, char **argv)
 		return (0);
 	}
 	if (!(amount = validation(argv[1], &head)))
-		ft_putstr("ERROR\n");
+		ft_putstr("error\n");
 	else
 	{
-		ft_putstr("SUCCESS\n");
 		lst_print(head);
 		bruteforce(head, amount);
 	}
