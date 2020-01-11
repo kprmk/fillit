@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 16:14:40 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/11 15:59:19 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/11 16:43:28 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int		main(int argc, char **argv)
 {
 	t_lst	*head;
 	int		amount;
+	char *line;
 
 	head = NULL;
 	amount = 0;
@@ -24,7 +25,13 @@ int		main(int argc, char **argv)
 		ft_putstr("usage: fillit input_file\n");
 		return (0);
 	}
-	if (!(amount = validation(argv[1], &head)))
+/*	amount = open(argv[1], O_RDONLY);
+	printf("%d\n", amount);
+	get_next_line(amount, &line);
+	printf("%s\n", line);
+	if (ft_strcmp(line, "") == 0)
+		printf("%s\n", "NULL");*/
+	if ((amount = validation(argv[1], &head)) < 1)
 		ft_putstr("error\n");
 	else
 	{

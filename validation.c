@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 15:53:40 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/10 17:21:01 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/11 17:18:07 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int		check_input_with_lst(t_lst **head, char *str, int *i, char *ar)
 	int x;
 
 	x = -1;
-	if (*str && (ft_strlen(str) != 4 || (*i) == -1))
+	if ((*str && (ft_strlen(str) != 4 || (*i) == -1)))
 		return (0);
 	if (!(*i) && !(ar[1]))
 		if (!lst_push_front(head, lst_new(ar[1])))
@@ -109,16 +109,22 @@ int		validation(char *file_name, t_lst **head)
 	int		fd;
 	int		i;
 	t_lst	*temp;
-	char	ar[2];
+	char	ar[3];
 
 	ar[0] = 0;
 	ar[1] = 0;
 	i = 0;
+	ar[2] = 0;
 	if ((fd = open((const char *)file_name, O_RDONLY)) == -1)
 		return (-1);
 	while (get_next_line(fd, &str))
-		if (!check_input_with_lst(head, str, &i, ar))
+	{
+		ar[2] = 1;
+		if (check_input_with_lst(head, str, &i, ar) < 1)
 			return (0);
+	}
+	if (ar[2] == 0)
+		return (-1);
 	temp = *head;
 	*head = (*head)->next;
 	free(temp->coords);
