@@ -47,7 +47,6 @@ int			solve(short **map, int map_size, t_lst **node, int num, t_lst *print)
 void		bruteforce(t_lst *node, int tetri_nbr)
 {
 	short	*map;
-	int		j;
 	int		map_size;
 	t_lst	*temp;
 
@@ -67,22 +66,17 @@ void		bruteforce(t_lst *node, int tetri_nbr)
 		change_map_size(&(temp->coords), 4, map_size);
 		temp = temp->next;
 	}
-	j = -1;
-	while (j == -1)
+	while (solve(&map, map_size, &node, 0, node) == -1)
 	{
-		j = solve(&map, map_size, &node, 0, node);
-		if (j == -1)
+		delete_map(&map);
+		map_size++;
+		printf("c_map_size -> %d\n", map_size);
+		map = create_map(map_size);
+		temp = node;
+		while (temp)
 		{
-			delete_map(&map);
-			map_size++;
-			printf("c_map_size -> %d\n", map_size);
-			map = create_map(map_size);
-			temp = node;
-			while (temp)
-			{
-				change_map_size(&(temp->coords), map_size - 1, map_size);
-				temp = temp->next;
-			}
+			change_map_size(&(temp->coords), map_size - 1, map_size);
+			temp = temp->next;
 		}
 	}
 	if (print_with_letters(node, NULL, map_size) == -1)
