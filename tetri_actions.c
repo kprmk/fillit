@@ -25,19 +25,7 @@ int		can_push_tetri(short *map, int map_size, short *coord, int curr_pos, int *r
 {
 	int i;
 
-	i = 0;
-/*
-	if (coord[3] + curr_pos > map_size * map_size - 1)
-		return (-1);
-	while (i < 4)
-	{
-		if (map[coord[i] + curr_pos] == 1)
-	 		return (-1);
-		if ((curr_pos + coord[i]) / map_size != (curr_pos / map_size) + (coord[i] / map_size))
-			return (-1);
-	 	i++;
-	 }
-*/	
+	i = 0;	
 	while (i < 4)
 	{
 		if (map[coord[i] + curr_pos] == 1)

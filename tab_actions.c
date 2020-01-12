@@ -57,3 +57,15 @@ void	change_map_size(short **c, int src_size, int dest_size)
 		i++;
 	}
 }
+
+void		change_size_for_lst(t_lst *node, int start_size, int dest_size)
+{
+	t_lst	*temp;
+
+	temp = node;
+	while (temp)
+	{
+		change_map_size(&(temp->coords), start_size, dest_size);
+		temp = temp->next;
+	}
+}

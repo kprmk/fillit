@@ -60,24 +60,14 @@ void		bruteforce(t_lst *node, int tetri_nbr)
 	printf("initial_map_size -> %d\n", map_size);
 	map = create_map(map_size);
 	lst_foreach(node, (void (*)(void *))move_upleft);
-	temp = node;
-	while (temp)
-	{
-		change_map_size(&(temp->coords), 4, map_size);
-		temp = temp->next;
-	}
+	change_size_for_lst(node, 4, map_size);
 	while (solve(&map, map_size, &node, 0, node) == -1)
 	{
 		delete_map(&map);
 		map_size++;
 		printf("c_map_size -> %d\n", map_size);
 		map = create_map(map_size);
-		temp = node;
-		while (temp)
-		{
-			change_map_size(&(temp->coords), map_size - 1, map_size);
-			temp = temp->next;
-		}
+		change_size_for_lst(node, map_size - 1, map_size);
 	}
 	if (print_with_letters(node, NULL, map_size) == -1)
 		ft_putstr("error\n");

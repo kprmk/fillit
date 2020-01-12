@@ -58,6 +58,7 @@ int		solve(short **map, int map_size, t_lst **node,  int num, t_lst *print);
 void	bruteforce(t_lst *node,  int tetri_nbr);
 
 void	change_map_size(short **c, int src_size, int dest_size);
+void	change_size_for_lst(t_lst *node, int start_size, int dest_size);
 int		print_with_letters(t_lst *head, t_lst *cur, int map_size);
 void	print_charmap(char **map,  int map_size);
 void	delete_charmap(char ***map,  int size);
