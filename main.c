@@ -16,7 +16,6 @@ int		main(int argc, char **argv)
 {
 	t_lst	*head;
 	int		amount;
-//	char *line;
 
 	head = NULL;
 	amount = 0;
@@ -25,18 +24,13 @@ int		main(int argc, char **argv)
 		ft_putstr("usage: fillit input_file\n");
 		return (0);
 	}
-/*	amount = open(argv[1], O_RDONLY);
-	printf("%d\n", amount);
-	get_next_line(amount, &line);
-	printf("%s\n", line);
-	if (ft_strcmp(line, "") == 0)
-		printf("%s\n", "NULL");*/
 	if ((amount = validation(argv[1], &head)) < 1)
 		ft_putstr("error\n");
 	else
 	{
 		lst_print(head);
 		bruteforce(head, amount);
+		lst_del(&head);
 	}
 	return (0);
 }
