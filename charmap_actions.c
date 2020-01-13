@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:26:11 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/13 13:40:46 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 16:19:29 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ int		print_with_letters(t_lst *head, t_lst *cur, int size)
 	int		amount;
 	int		counter;
 	int		x;
-	int		y;
 	char	**map;
 
 	amount = amount_of_items(head, cur);

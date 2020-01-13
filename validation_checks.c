@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 23:21:31 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 16:06:08 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 16:22:03 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ char	check_area(short *ar, char i, char j)
 		j = 0;
 		while (j < i)
 		{
-			if (mod(ar[i] - ar[j]) == 1 && ar[i + 1] == ar[j + 1])
+			if (mod(ar[(int)i] - ar[(int)j]) == 1 && ar[(int)i + 1] == ar[(int)j + 1])
 				sum += 2;
-			if (mod(ar[i + 1] - ar[j + 1]) == 1 && ar[i] == ar[j])
+			if (mod(ar[(int)i + 1] - ar[(int)j + 1]) == 1 && ar[(int)i] == ar[(int)j])
 				sum += 1;
 			j += 2;
 		}
@@ -87,10 +87,10 @@ void	deep_and_hor(t_lst **head, short *mas)
 	max = mas[1];
 	while (i <= 7)
 	{
-		if (mas[i] < min)
-			min = mas[i];
-		if (mas[i] > max)
-			max = mas[i];
+		if (mas[(int)i] < min)
+			min = mas[(int)i];
+		if (mas[(int)i] > max)
+			max = mas[(int)i];
 		i += 2;
 	}
 	(*head)->deep = mas[6] - mas[0];

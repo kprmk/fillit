@@ -6,13 +6,13 @@
 #    By: eshor <eshor@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 17:25:06 by eshor             #+#    #+#              #
-#    Updated: 2020/01/13 15:30:44 by eshor            ###   ########.fr        #
+#    Updated: 2020/01/13 16:18:19 by eshor            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 COMPILER = gcc
-FLAGS = -g -o
+FLAGS = -o
 INC = -I libft/includes
 LIB = libft/libft.a
 SRCS = fillit.c \

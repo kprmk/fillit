@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 15:53:40 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 16:06:34 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 16:21:04 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int		check_input_with_lst(t_lst **head, char *str, int *i, char *ar)
 	{
 		if (str[x] == '#' && ar[0] < 8)
 		{
-			(*head)->coords[ar[0]++] = *i;
-			(*head)->coords[ar[0]++] = x;
+			(*head)->coords[(int)ar[0]++] = *i;
+			(*head)->coords[(int)ar[0]++] = x;
 		}
 		else if (str[x] != '.' || (ar[0] > 7 && str[x] == '#'))
 			return (0);
