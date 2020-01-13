@@ -6,40 +6,35 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 21:16:59 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/10 17:38:23 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 13:49:32 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int			solve(short **map, int map_size, t_lst **node, int num, t_lst *print)
+int			solve(short **map, int map_size, t_lst **node, int num)
 {
-	int curr_pos;
-	int r_l[2];
+	int r_l_curr[3];
 
-	r_l[0] = (*node)->r;
-	r_l[1] = (*node)->l;
-	curr_pos = 0;
-	while (curr_pos < map_size * map_size - 3)
+	r_l_curr[0] = (*node)->r;
+	r_l_curr[1] = (*node)->l;
+	r_l_curr[2] = 0;
+	while (r_l_curr[2] < map_size * map_size - 3)
 	{
-		if (can_push_tetri(*map, map_size, (*node)->coords, curr_pos, r_l) == 0)
+		if (can_push_tetri(*map, map_size, (*node)->coords, r_l_curr) == 0)
 		{
-			push_tetri(map, node, curr_pos, num);
-			// print_with_letters(print, *node, map_size);
+			push_tetri(map, node, r_l_curr[2], num);
 			if ((*node)->next)
 			{
-				if ((solve(map, map_size, &((*node)->next), num + 1, print)) == 0)
+				if ((solve(map, map_size, &((*node)->next), num + 1)) == 0)
 					return (0);
 				else
-				{
-					clear_tetri(map, node, curr_pos);
-					// print_with_letters(print, *node, map_size);
-				}
+					clear_tetri(map, node, r_l_curr[2]);
 			}
 			else
 				return (0);
 		}
-		curr_pos++;
+		r_l_curr[2]++;
 	}
 	return (-1);
 }
@@ -57,15 +52,13 @@ void		bruteforce(t_lst *node, int tetri_nbr)
 		map_size = check_height(temp->coords, map_size);
 		temp = temp->next;
 	}
-	printf("initial_map_size -> %d\n", map_size);
 	map = create_map(map_size);
 	lst_foreach(node, (void (*)(void *))move_upleft);
 	change_size_for_lst(node, 4, map_size);
-	while (solve(&map, map_size, &node, 0, node) == -1)
+	while (solve(&map, map_size, &node, 0) == -1)
 	{
 		delete_map(&map);
 		map_size++;
-		printf("c_map_size -> %d\n", map_size);
 		map = create_map(map_size);
 		change_size_for_lst(node, map_size - 1, map_size);
 	}

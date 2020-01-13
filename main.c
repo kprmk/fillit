@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 16:14:40 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/11 17:26:03 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 12:57:51 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		main(int argc, char **argv)
 		ft_putstr("error\n");
 	else
 	{
-		lst_print(head);
+//		lst_print(head);
 		bruteforce(head, amount);
 		lst_del(&head);
 	}

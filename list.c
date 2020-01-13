@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 18:26:29 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/11 15:54:09 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 13:42:05 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,36 +76,5 @@ void	lst_print(t_lst *head)
 		printf("%d %d %d\n", head->l, head->r, head->deep);
 		ft_putchar('\n');
 		head = head->next;
-	}
-}
-
-void	lst_reverse(t_lst **head)
-{
-	t_lst	*prev;
-	t_lst	*cur;
-	t_lst	*next;
-
-	prev = NULL;
-	cur = NULL;
-	next = *head;
-	while (next)
-	{
-		cur = next;
-		next = next->next;
-		cur->next = prev;
-		prev = cur;
-	}
-	*head = cur;
-}
-
-void	lst_foreach(t_lst *head, void (*f)(void *))
-{
-	t_lst	*current;
-
-	current = head;
-	while (current)
-	{
-		(*f)(&(current->coords));
-		current = current->next;
 	}
 }
