@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 15:53:40 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 16:21:04 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 19:56:58 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,11 @@ char	check_of_ending_block(t_lst **head, short **mas, int *i, char *ar)
 			return (0);
 		ar[0] = 0;
 		ar[1]++;
+		int q = -1;
+		printf("\n");
+		while (++q < 8)
+			printf("%d ", (*head)->coords[q]);
+				printf("\n");
 		deep_and_hor(head, *mas);
 		if (!lst_push_front(head, lst_new(ar[1])))
 			return (0);

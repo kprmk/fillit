@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 18:26:29 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 16:13:07 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 19:52:05 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_lst	*lst_new(int counter)
 	if (!(res->coords = (short *)malloc(sizeof(short) * 8)))
 		return (NULL);
 	while (++i < 8)
-		res->coords[i] = 0;
+		res->coords[i] = -1;
 	res->next = NULL;
 	return (res);
 }

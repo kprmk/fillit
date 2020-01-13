@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   aux_funcs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 21:52:44 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/10 17:13:57 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 19:55:39 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+char	ft_mod(int a)
+{
+	return (a < 0 ? -a : a);
+}
 
 int		ft_sqrt(int nbr)
 {

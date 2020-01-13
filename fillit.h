@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 18:51:44 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 16:10:47 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 19:55:59 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define FILLIT_H
 # define MAX_FD 32
 # include "libft.h"
+
+//
+#include <stdio.h>
+//
 
 typedef	struct	s_lst
 {
@@ -57,4 +61,5 @@ int				print_with_letters(t_lst *head, t_lst *cur, int size);
 char			**create_charmap(int size);
 void			print_charmap(char **map, int map_size);
 void			delete_charmap(char ***map, int size);
+char			ft_mod(int a);
 #endif

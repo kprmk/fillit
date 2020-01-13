@@ -3,21 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   validation_checks.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 23:21:31 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 16:22:03 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 20:25:55 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	mod(int a)
-{
-	return (a < 0 ? -a : a);
-}
-
-char	check_6(short *ar)
+char	check_4(short *ar)
 {
 	int	i;
 
@@ -33,47 +28,42 @@ char	check_6(short *ar)
 	return (1);
 }
 
-char	check_3(short *ar)
+char	check_adjacent(short *ar, int sum)
 {
-	int		i;
-
-	i = 1;
-	while (i < 7)
-	{
-		if (ar[i + 2] - ar[i] != 1)
-			return (0);
-		i += 2;
-	}
-	return (1);
+	if (sum == 3)
+		return (1);
+	else if (sum == 4)
+		return (check_4(ar));
+	else
+		return (0);
 }
 
 char	check_area(short *ar, char i, char j)
 {
 	int		sum;
+	int		flag;
 
 	i = 2;
 	sum = 0;
 	while (i < 8)
 	{
+		if (ar[(int)i] == -1)
+			return (0);
 		j = 0;
 		while (j < i)
 		{
-			if (mod(ar[(int)i] - ar[(int)j]) == 1 && ar[(int)i + 1] == ar[(int)j + 1])
-				sum += 2;
-			if (mod(ar[(int)i + 1] - ar[(int)j + 1]) == 1 && ar[(int)i] == ar[(int)j])
+			if (ar[(int)i] - ar[(int)j] == 1
+				&& ar[(int)i + 1] == ar[(int)j + 1])
+				sum += 1;
+			if (ft_mod(ar[(int)i + 1] - ar[(int)j + 1]) == 1 
+				&& ar[(int)i] == ar[(int)j])
 				sum += 1;
 			j += 2;
 		}
 		i += 2;
 	}
-	if (sum > 3 && sum < 6)
-		return (1);
-	else if (sum == 6)
-		return (check_6(ar));
-	else if (sum == 3)
-		return (check_3(ar));
-	else
-		return (0);
+		printf("%d \n", sum);
+	return (check_adjacent(ar, sum));
 }
 
 void	deep_and_hor(t_lst **head, short *mas)
