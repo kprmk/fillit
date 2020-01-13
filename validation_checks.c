@@ -6,7 +6,7 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 23:21:31 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 20:25:55 by mbrogg           ###   ########.fr       */
+/*   Updated: 2020/01/13 20:39:30 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	check_adjacent(short *ar, int sum)
 		return (0);
 }
 
-char	check_area(short *ar, char i, char j)
+char	check_area(short *ar, int i, int j)
 {
 	int		sum;
 	int		flag;
