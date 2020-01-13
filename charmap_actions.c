@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:26:11 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/13 16:19:29 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 22:51:23 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	delete_charmap(char ***map, int size)
 		free((*map)[i]);
 		i++;
 	}
+	free(*map);
 	*map = NULL;
 }
 

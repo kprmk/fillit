@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 18:51:44 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 22:19:13 by mbrogg           ###   ########.fr       */
+/*   Updated: 2020/01/13 22:30:11 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
-# define MAX_FD 32
 # include "libft.h"
 
 typedef	struct	s_lst

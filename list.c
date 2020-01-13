@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 18:26:29 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 22:19:45 by mbrogg           ###   ########.fr       */
+/*   Updated: 2020/01/13 22:48:03 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ int		lst_push_front(t_lst **head, t_lst *new)
 	return (1);
 }
 
-void	lst_rec(t_lst *current)
+void	lst_rec(t_lst **current)
 {
-	if (current)
+	if (*current)
 	{
-		lst_rec(current->next);
-		free(current->coords);
-		free(current);
+		lst_rec(&(*current)->next);
+		free((*current)->coords);
+		free(*current);
 	}
 }
 
@@ -56,7 +56,7 @@ void	lst_del(t_lst **head)
 {
 	if (head && *head)
 	{
-		lst_rec(*head);
+		lst_rec(head);
 		*head = NULL;
 	}
 }

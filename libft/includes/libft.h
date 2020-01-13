@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 11:36:21 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/11/19 21:25:28 by mbrogg           ###   ########.fr       */
+/*   Updated: 2020/01/13 22:29:45 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <limits.h>
 
 # define BUFF_SIZE 5
+# define MAX_FD 1024
 
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
