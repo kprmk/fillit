@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 18:26:29 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 13:42:05 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 16:13:07 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,26 +55,5 @@ void	lst_del(t_lst **head)
 	{
 		lst_rec(*head);
 		*head = NULL;
-	}
-}
-
-void	lst_print(t_lst *head)
-{
-	int i;
-
-	i = -1;
-	while (head)
-	{
-		i = -1;
-		ft_putnbr(head->index_number);
-		ft_putstr("\t->\t");
-		while (++i < 4)
-		{
-			ft_putnbr(head->coords[i]);
-			ft_putstr("\t");
-		}
-		printf("%d %d %d\n", head->l, head->r, head->deep);
-		ft_putchar('\n');
-		head = head->next;
 	}
 }

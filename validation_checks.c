@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation_checks.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 23:21:31 by mbrogg            #+#    #+#             */
-/*   Updated: 2019/12/28 19:08:12 by mbrogg           ###   ########.fr       */
+/*   Updated: 2020/01/13 16:06:08 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,26 @@ char	check_area(short *ar, char i, char j)
 		return (check_3(ar));
 	else
 		return (0);
+}
+
+void	deep_and_hor(t_lst **head, short *mas)
+{
+	short	min;
+	short	max;
+	char	i;
+
+	i = 3;
+	min = mas[1];
+	max = mas[1];
+	while (i <= 7)
+	{
+		if (mas[i] < min)
+			min = mas[i];
+		if (mas[i] > max)
+			max = mas[i];
+		i += 2;
+	}
+	(*head)->deep = mas[6] - mas[0];
+	(*head)->r = max - mas[1];
+	(*head)->l = mas[1] - min;
 }

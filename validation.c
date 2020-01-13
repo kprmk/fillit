@@ -6,41 +6,40 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 15:53:40 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/11 17:28:18 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 16:06:34 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	deep_and_hor(t_lst **head, short *mas)
+void	endblock_loop(short **mas)
 {
-	short	min;
-	short	max;
-	char	i;
+	char x;
+	char y;
+	char f;
 
-	i = 3;
-	min = mas[1];
-	max = mas[1];
-	while (i <= 7)
+	f = 0;
+	x = 1;
+	y = -1;
+	while (++y < 8)
 	{
-		if (mas[i] < min)
-			min = mas[i];
-		if (mas[i] > max)
-			max = mas[i];
-		i += 2;
+		if (y < 4)
+		{
+			if (*(*mas + x) + 4 * f <= *(*mas + y - 1) && y)
+				f++;
+			*(*mas + y) = *(*mas + x) + 4 * f;
+		}
+		else
+			*(*mas + y) = 0;
+		x += 2;
 	}
-	(*head)->deep = mas[6] - mas[0];
-	(*head)->r = max - mas[1];
-	(*head)->l = mas[1] - min;
 }
 
 char	check_of_ending_block(t_lst **head, short **mas, int *i, char *ar)
 {
-	char	x;
-	char	y;
-	char	f;
+	char x;
+	char y;
 
-	f = 0;
 	x = 0;
 	y = 0;
 	if (++(*i) == 4)
@@ -50,27 +49,10 @@ char	check_of_ending_block(t_lst **head, short **mas, int *i, char *ar)
 		ar[0] = 0;
 		ar[1]++;
 		deep_and_hor(head, *mas);
-		// (*head)->coords[5] = (*head)->r;
-		// printf("%d %d \n",(*mas)[4] ,(*head)->r);
 		if (!lst_push_front(head, lst_new(ar[1])))
 			return (0);
 		*i = -1;
-		x = 1;
-		y = 0;
-		while (y < 8)
-		{
-			if (y < 4)
-			{
-				if (*(*mas + x) + 4 * f <= *(*mas + y - 1) && y)
-					f++;
-				*(*mas + y) = *(*mas + x) + 4 * f;
-				// *(*mas + y) = *(*mas + x);
-			}
-			else
-				*(*mas + y) = 0;
-			y++;
-			x += 2;
-		}
+		endblock_loop(mas);
 	}
 	return (1);
 }
@@ -105,18 +87,28 @@ int		check_input_with_lst(t_lst **head, char *str, int *i, char *ar)
 **	or an empty character (’.’)
 */
 
+void	lst_rev(t_lst **head)
+{
+	t_lst *temp;
+
+	temp = *head;
+	*head = (*head)->next;
+	free(temp->coords);
+	free(temp);
+	lst_reverse(head);
+}
+
 int		validation(char *file_name, t_lst **head)
 {
 	char	*str;
 	int		fd;
 	int		i;
-	t_lst	*temp;
 	char	ar[3];
 
 	ar[0] = 0;
 	ar[1] = 0;
-	i = 0;
 	ar[2] = 0;
+	i = 0;
 	if ((fd = open((const char *)file_name, O_RDONLY)) == -1)
 		return (-1);
 	while (get_next_line(fd, &str))
@@ -127,11 +119,7 @@ int		validation(char *file_name, t_lst **head)
 	}
 	if (ar[2] == 0)
 		return (-1);
-	temp = *head;
-	*head = (*head)->next;
-	free(temp->coords);
-	free(temp);
-	lst_reverse(head);
+	lst_rev(head);
 	close(fd);
 	return (ar[1]);
 }

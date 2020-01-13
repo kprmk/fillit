@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 21:16:59 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 13:49:32 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 16:11:01 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int			solve(short **map, int map_size, t_lst **node, int num)
 	r_l_curr[2] = 0;
 	while (r_l_curr[2] < map_size * map_size - 3)
 	{
-		if (can_push_tetri(*map, map_size, (*node)->coords, r_l_curr) == 0)
+		if (can_push(*map, map_size, (*node)->coords, r_l_curr) == 0)
 		{
 			push_tetri(map, node, r_l_curr[2], num);
 			if ((*node)->next)

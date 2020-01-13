@@ -6,13 +6,13 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 22:01:55 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/13 13:47:54 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 16:10:55 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		can_push_tetri(short *map, int map_size, short *coord, int *r_l_cur)
+int		can_push(short *map, int map_size, short *coord, int *r_l_cur)
 {
 	int i;
 	int curr_pos;
