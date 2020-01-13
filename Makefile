@@ -6,11 +6,7 @@
 #    By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 17:25:06 by eshor             #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2020/01/13 19:04:59 by mbrogg           ###   ########.fr        #
-=======
-#    Updated: 2020/01/13 17:08:19 by eshor            ###   ########.fr        #
->>>>>>> 7716a799238c7862cd49e63a64bc2df0494de239
+#    Updated: 2020/01/13 22:03:07 by mbrogg           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,12 +42,7 @@ clean:
 	make clean -C libft
 	
 fclean:
-<<<<<<< HEAD
-	@rm $(NAME)
-
-re: fclean $(NAME)
-=======
 	make fclean -C libft
+	rm $(NAME)
 	
 re: fclean all
->>>>>>> 7716a799238c7862cd49e63a64bc2df0494de239

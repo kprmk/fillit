@@ -6,13 +6,13 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 18:26:29 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 19:52:05 by mbrogg           ###   ########.fr       */
+/*   Updated: 2020/01/13 22:19:45 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_lst	*lst_new(int counter)
+t_lst	*lst_new(t_lst** head, int counter)
 {
 	t_lst	*res;
 	int		i;
@@ -22,7 +22,10 @@ t_lst	*lst_new(int counter)
 		return (NULL);
 	res->index_number = counter;
 	if (!(res->coords = (short *)malloc(sizeof(short) * 8)))
+	{
+		lst_del(head);
 		return (NULL);
+	}
 	while (++i < 8)
 		res->coords[i] = -1;
 	res->next = NULL;

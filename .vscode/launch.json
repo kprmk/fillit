@@ -5,7 +5,7 @@
             "name": "C Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/a.out",
+            "program": "${workspaceRoot}/fillit",
             // "preLaunchTask": "FIL",
             "logging": {
                 "moduleLoad": false,
@@ -14,10 +14,10 @@
             },
             "showDisplayString": false,
             "args": [],
-            "stopAtEntry": false,
+            "stopAtEntry": true,
             "cwd": "${workspaceRoot}",
             "environment": [],
-            "externalConsole": false, 
+            "externalConsole": true, 
             "osx": {
                 "MIMode": "lldb"
             }

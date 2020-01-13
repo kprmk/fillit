@@ -6,7 +6,7 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 23:21:31 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 20:39:30 by mbrogg           ###   ########.fr       */
+/*   Updated: 2020/01/13 20:42:46 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ char	check_adjacent(short *ar, int sum)
 char	check_area(short *ar, int i, int j)
 {
 	int		sum;
-	int		flag;
 
 	i = 2;
 	sum = 0;
@@ -55,14 +54,13 @@ char	check_area(short *ar, int i, int j)
 			if (ar[(int)i] - ar[(int)j] == 1
 				&& ar[(int)i + 1] == ar[(int)j + 1])
 				sum += 1;
-			if (ft_mod(ar[(int)i + 1] - ar[(int)j + 1]) == 1 
+			if (ft_mod(ar[(int)i + 1] - ar[(int)j + 1]) == 1
 				&& ar[(int)i] == ar[(int)j])
 				sum += 1;
 			j += 2;
 		}
 		i += 2;
 	}
-		printf("%d \n", sum);
 	return (check_adjacent(ar, sum));
 }
 

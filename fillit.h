@@ -6,7 +6,7 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 18:51:44 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 20:39:38 by mbrogg           ###   ########.fr       */
+/*   Updated: 2020/01/13 22:19:13 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 # define FILLIT_H
 # define MAX_FD 32
 # include "libft.h"
-
-//
-#include <stdio.h>
-//
 
 typedef	struct	s_lst
 {
@@ -30,7 +26,7 @@ typedef	struct	s_lst
 	struct s_lst	*next;
 }				t_lst;
 
-t_lst			*lst_new(int counter);
+t_lst			*lst_new(t_lst** head, int counter);
 int				lst_push_front(t_lst **head, t_lst *new);
 void			lst_del(t_lst **head);
 void			lst_print(t_lst *head);
@@ -62,4 +58,5 @@ char			**create_charmap(int size);
 void			print_charmap(char **map, int map_size);
 void			delete_charmap(char ***map, int size);
 char			ft_mod(int a);
+void			endblock_loop(short **mas);
 #endif
