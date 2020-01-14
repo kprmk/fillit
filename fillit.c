@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 21:16:59 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 16:11:01 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/14 16:19:53 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,21 @@ void		bruteforce(t_lst *node, int tetri_nbr)
 	temp = node;
 	while (temp)
 	{
-		map_size = check_height(temp->coords, map_size);
+		map_size = check_height(temp->coords, map_size, temp->r, temp->l);
 		temp = temp->next;
 	}
 	map = create_map(map_size);
 	lst_foreach(node, (void (*)(void *))move_upleft);
+	lst_print(node);
 	change_size_for_lst(node, 4, map_size);
+	lst_print(node);
 	while (solve(&map, map_size, &node, 0) == -1)
 	{
 		delete_map(&map);
 		map_size++;
 		map = create_map(map_size);
 		change_size_for_lst(node, map_size - 1, map_size);
+		lst_print(node);
 	}
 	if (print_with_letters(node, NULL, map_size) == -1)
 		ft_putstr("error\n");

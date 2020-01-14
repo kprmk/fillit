@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 15:53:40 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 22:40:10 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/14 15:23:02 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,6 @@ int		validation(char *file_name, t_lst **head)
 	i = 0;
 	if ((fd = open((const char *)file_name, O_RDONLY)) == -1)
 		return (-1);
-	
 	while (get_next_line(fd, &str))
 	{
 		ar[2] = 1;

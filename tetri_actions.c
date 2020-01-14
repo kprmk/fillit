@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 22:01:55 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/13 16:10:55 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/14 16:19:24 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	push_tetri(short **map, t_lst **node, int curr_pos, int num)
 	}
 }
 
-int		check_height(short *coords, int map_size)
+int		check_height(short *coords, int map_size, int r, int l)
 {
 	int i;
 	int length;
@@ -88,6 +88,7 @@ int		check_height(short *coords, int map_size)
 		i++;
 	}
 	length = max % 4 - min % 4 + 1;
+	length = (length > r + l + 1) ? length : r + l + 1;
 	if (length > map_size)
 		return (length);
 	else

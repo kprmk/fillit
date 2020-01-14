@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+         #
+#    By: eshor <eshor@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 17:25:06 by eshor             #+#    #+#              #
-#    Updated: 2020/01/13 22:03:07 by mbrogg           ###   ########.fr        #
+#    Updated: 2020/01/14 15:28:59 by eshor            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,6 @@ SRCS = fillit.c \
 	validation.c \
 	validation_checks.c
 OBJ		= $(SRC:.c=.o)
-all: $(NAME)
 
 %.o:%.c
 	$(COMPILER) $(FLAGS) $(INC) -o $@ -c $<
@@ -36,13 +35,15 @@ $(NAME): lib $(OBJ)
 	@$(COMPILER) $(FLAGS) -o $(NAME) $(OBJ) $(SRCS) $(INC) $(LIB)
 
 lib:
-	make -C libft
+	cd libft && make
 	
 clean:
-	make clean -C libft
+	cd libft && make clean
 	
 fclean:
-	make fclean -C libft
+	cd libft && make fclean
 	rm $(NAME)
-	
+
 re: fclean all
+
+all: $(NAME)

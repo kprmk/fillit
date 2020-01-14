@@ -6,13 +6,13 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 18:26:29 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 22:48:03 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/14 15:22:10 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_lst	*lst_new(t_lst** head, int counter)
+t_lst	*lst_new(t_lst **head, int counter)
 {
 	t_lst	*res;
 	int		i;
