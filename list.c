@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 18:26:29 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 22:48:03 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/14 15:45:59 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_lst	*lst_new(t_lst** head, int counter)
+t_lst	*lst_new(t_lst **head, int counter)
 {
 	t_lst	*res;
 	int		i;
@@ -59,4 +59,17 @@ void	lst_del(t_lst **head)
 		lst_rec(head);
 		*head = NULL;
 	}
+}
+
+int		lst_len(t_lst *head)
+{
+	int counter;
+
+	counter = 0;
+	while (head->next)
+	{
+		counter++;
+		head = head->next;
+	}
+	return (counter);
 }

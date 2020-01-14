@@ -6,7 +6,7 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 23:21:31 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/13 20:42:46 by mbrogg           ###   ########.fr       */
+/*   Updated: 2020/01/14 16:05:35 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void	deep_and_hor(t_lst **head, short *mas)
 			max = mas[(int)i];
 		i += 2;
 	}
-	(*head)->deep = mas[6] - mas[0];
 	(*head)->r = max - mas[1];
 	(*head)->l = mas[1] - min;
 }

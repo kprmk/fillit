@@ -6,13 +6,13 @@
 #    By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 17:25:06 by eshor             #+#    #+#              #
-#    Updated: 2020/01/13 22:03:07 by mbrogg           ###   ########.fr        #
+#    Updated: 2020/01/14 16:07:34 by mbrogg           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 COMPILER = gcc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 INC = -I libft/includes
 LIB = libft/libft.a
 SRCS = fillit.c \
