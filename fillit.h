@@ -6,17 +6,13 @@
 /*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 18:51:44 by mbrogg            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2020/01/14 16:19:41 by eshor            ###   ########.fr       */
-=======
-/*   Updated: 2020/01/14 16:05:09 by mbrogg           ###   ########.fr       */
->>>>>>> d56d2534f2843a331d07e9cc14e756b89371b9b8
+/*   Updated: 2020/01/14 20:56:56 by mbrogg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
-# include "libft.h"
+# include <libft.h>
 
 typedef	struct	s_lst
 {
@@ -28,11 +24,7 @@ typedef	struct	s_lst
 	struct s_lst	*next;
 }				t_lst;
 
-<<<<<<< HEAD
 t_lst			*lst_new(t_lst **head, int counter);
-=======
-t_lst			*lst_new(t_lst	**head, int counter);
->>>>>>> d56d2534f2843a331d07e9cc14e756b89371b9b8
 int				lst_push_front(t_lst **head, t_lst *new);
 void			lst_del(t_lst **head);
 void			lst_print(t_lst *head);

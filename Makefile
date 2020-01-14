@@ -3,20 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eshor <eshor@student.42.fr>                +#+  +:+       +#+         #
+#    By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 17:25:06 by eshor             #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2020/01/14 15:28:59 by eshor            ###   ########.fr        #
-=======
-#    Updated: 2020/01/14 16:07:34 by mbrogg           ###   ########.fr        #
->>>>>>> d56d2534f2843a331d07e9cc14e756b89371b9b8
+#    Updated: 2020/01/14 20:55:56 by mbrogg           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 COMPILER = gcc
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -Werror
 INC = -I libft/includes
 LIB = libft/libft.a
 SRCS = fillit.c \
@@ -30,23 +26,24 @@ SRCS = fillit.c \
 	tab_actions.c \
 	validation.c \
 	validation_checks.c
+
 OBJ		= $(SRC:.c=.o)
 
-%.o:%.c
-	$(COMPILER) $(FLAGS) $(INC) -o $@ -c $<
+.PHONY: all clean fclean re
 
-$(NAME): lib $(OBJ)
+%.o: %.c
+	@$(COMPILER) $(FLAGS) $(INC) -o $@ -c $<
+
+$(NAME): $(OBJ)
+	@make -C libft/
 	@$(COMPILER) $(FLAGS) -o $(NAME) $(OBJ) $(SRCS) $(INC) $(LIB)
-
-lib:
-	cd libft && make
 	
 clean:
-	cd libft && make clean
+	@cd libft && make clean
 	
 fclean:
-	cd libft && make fclean
-	rm $(NAME)
+	@cd libft && make fclean
+	@rm -f $(NAME)
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 16:53:41 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/14 16:07:04 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/14 16:23:35 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ void	change_map_size(short **c, int src_size, int dest_size)
 	i = 0;
 	j = 0;
 	diff = dest_size - src_size;
-	ft_putnbr(diff);
-	ft_putchar('\n');
 	while (i < 4)
 	{
 		(*c)[i] = (*c)[i] / src_size * diff + (*c)[i];
