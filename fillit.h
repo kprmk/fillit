@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 18:51:44 by mbrogg            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2020/01/14 16:19:41 by eshor            ###   ########.fr       */
+=======
+/*   Updated: 2020/01/14 16:05:09 by mbrogg           ###   ########.fr       */
+>>>>>>> d56d2534f2843a331d07e9cc14e756b89371b9b8
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +22,17 @@ typedef	struct	s_lst
 {
 	int				index_number:6;
 	int				upperleft;
-	int				deep:3;
 	int				l:3;
 	int				r:3;
 	short			*coords;
 	struct s_lst	*next;
 }				t_lst;
 
+<<<<<<< HEAD
 t_lst			*lst_new(t_lst **head, int counter);
+=======
+t_lst			*lst_new(t_lst	**head, int counter);
+>>>>>>> d56d2534f2843a331d07e9cc14e756b89371b9b8
 int				lst_push_front(t_lst **head, t_lst *new);
 void			lst_del(t_lst **head);
 void			lst_print(t_lst *head);
@@ -58,4 +65,5 @@ void			print_charmap(char **map, int map_size);
 void			delete_charmap(char ***map, int size);
 char			ft_mod(int a);
 void			endblock_loop(short **mas);
+int				lst_len(t_lst *head);
 #endif

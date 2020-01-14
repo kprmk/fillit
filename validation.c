@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 15:53:40 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/14 15:23:02 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/14 16:21:03 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ int		validation(char *file_name, t_lst **head)
 			return (0);
 		free(str);
 	}
-	if (ar[2] == 0 || i != -1)
+	if (ar[2] == 0 || i != -1 || lst_len(*head) > 26)
 		return (-1);
 	lst_rev(head);
 	close(fd);

@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 18:26:29 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/14 15:22:10 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/14 16:21:14 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,17 @@ void	lst_del(t_lst **head)
 		lst_rec(head);
 		*head = NULL;
 	}
+}
+
+int		lst_len(t_lst *head)
+{
+	int counter;
+
+	counter = 0;
+	while (head->next)
+	{
+		counter++;
+		head = head->next;
+	}
+	return (counter);
 }
