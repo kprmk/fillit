@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
-
+#include <stdio.h>
 int		main(int argc, char **argv)
 {
 	t_lst	*head;
@@ -25,11 +25,11 @@ int		main(int argc, char **argv)
 		return (0);
 	}
 	if ((amount = validation(argv[1], &head)) < 1)
-		ft_putstr("error\n");
+		ft_putstr("validaerror\n");
 	else
 	{
 		bruteforce(head, amount);
-		lst_del(&head);
 	}
+	lst_del(&head);
 	return (0);
 }

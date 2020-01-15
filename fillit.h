@@ -33,7 +33,7 @@ void			lst_foreach(t_lst *head, void (*f)(void *));
 int				amount_of_items(t_lst *head, t_lst *cur);
 int				check_input_with_lst(t_lst **head, char *str, int *i, char *ar);
 void			deep_and_hor(t_lst **head, short *mas);
-void			lst_rev(t_lst **head);
+void			lst_rev(t_lst **head, int fd);
 int				validation(char *file_name, t_lst **head);
 char			check_area(short *ar, int i, int j);
 int				check_height(short *coords, int map_size, int r, int l);

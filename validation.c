@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
 char	check_of_ending_block(t_lst **head, short **mas, int *i, char *ar)
 {
@@ -89,7 +90,7 @@ int		check_input_with_lst(t_lst **head, char *str, int *i, char *ar)
 **	or an empty character (’.’)
 */
 
-void	lst_rev(t_lst **head)
+void	lst_rev(t_lst **head, int fd)
 {
 	t_lst *temp;
 
@@ -98,31 +99,49 @@ void	lst_rev(t_lst **head)
 	free(temp->coords);
 	free(temp);
 	lst_reverse(head);
+	close(fd);
+}
+
+int		check_tetri(char ***tetri_ar, int *i, t_lst **head, char *ar)
+{
+	int j;
+
+	j = 0;
+	while (j < 4)
+	{
+		if (check_input_with_lst(head, (*tetri_ar)[j], i, ar) < 1)
+			return (0);
+		j++;
+	}
+	delete_charmap(tetri_ar, 4);
+	return (1);
 }
 
 int		validation(char *file_name, t_lst **head)
 {
-	char	*str;
+	char	str[21];
+	char	**tetri_ar;
 	int		fd;
-	int		i;
-	char	ar[3];
+	int 	i;
+	char	ar[4];
 
 	ar[0] = 0;
 	ar[1] = 0;
 	ar[2] = 0;
-	i = 0;
+	ar[3] = 0;
 	if ((fd = open((const char *)file_name, O_RDONLY)) == -1)
 		return (-1);
-	while (get_next_line(fd, &str))
+	while ((ar[3] = read(fd, str, 21)))
 	{
-		ar[2] = 1;
-		if (check_input_with_lst(head, str, &i, ar) < 1)
+		i = 0;
+		if (((ar[2] = ar[3]) != 21) && ar[3] != 20)
 			return (0);
-		free(str);
+		tetri_ar = ft_strsplit(str, '\n');
+		if (check_tetri(&tetri_ar, &i, head, ar) == 0)
+			return (0);
 	}
-	if (ar[2] == 0 || i != -1 || lst_len(*head) > 26)
+	if (ar[2] != 20 || i != -1 || lst_len(*head) > 26)
 		return (-1);
-	lst_rev(head);
-	close(fd);
+	lst_rev(head, fd);
 	return (ar[1]);
 }

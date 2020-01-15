@@ -43,11 +43,9 @@ void	move_upleft(short **c)
 void	change_map_size(short **c, int src_size, int dest_size)
 {
 	int i;
-	int j;
 	int diff;
 
 	i = 0;
-	j = 0;
 	diff = dest_size - src_size;
 	while (i < 4)
 	{
