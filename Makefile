@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+         #
+#    By: kprmk <kprmk@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 17:25:06 by eshor             #+#    #+#              #
-#    Updated: 2020/01/16 19:27:33 by mbrogg           ###   ########.fr        #
+#    Updated: 2020/01/17 01:25:41 by kprmk            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,16 +16,11 @@ FLAGS = -Wall -Wextra -Werror
 INC = -I libft/includes
 LIB = libft/libft.a
 SRCS = fillit.c \
-	aux_funcs.c \
 	list.c \
-	list2.c \
-	main.c \
-	map_actions.c \
 	charmap_actions.c \
 	tetri_actions.c \
 	tab_actions.c \
-	validation.c \
-	validation_checks.c
+	validation.c 
 
 OBJ		= $(SRC:.c=.o)
 

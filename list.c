@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kprmk <kprmk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 18:26:29 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/14 16:21:14 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/17 01:20:37 by kprmk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,3 +73,52 @@ int		lst_len(t_lst *head)
 	}
 	return (counter);
 }
+
+void	lst_reverse(t_lst **head)
+{
+	t_lst	*prev;
+	t_lst	*cur;
+	t_lst	*next;
+
+	prev = NULL;
+	cur = NULL;
+	next = *head;
+	while (next)
+	{
+		cur = next;
+		next = next->next;
+		cur->next = prev;
+		prev = cur;
+	}
+	*head = cur;
+}
+
+/*
+** Applies function f to every node of the list.
+*/
+
+void	lst_foreach(t_lst *head, void (*f)(void *))
+{
+	t_lst	*current;
+
+	current = head;
+	while (current)
+	{
+		(*f)(&(current->coords));
+		current = current->next;
+	}
+}
+
+int		amount_of_items(t_lst *head, t_lst *cur)
+{
+	int counter;
+
+	counter = 0;
+	while (head != cur)
+	{
+		counter++;
+		head = head->next;
+	}
+	return (counter);
+}
+

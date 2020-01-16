@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   tetri_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kprmk <kprmk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 22:01:55 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/14 16:19:24 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/17 01:14:57 by kprmk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+/*
+**	There is check for the ability to put the tetromino on the spot
+**	The first check is about intersection of tetrominos (while)
+**	The second one is about placing the current figure within the map
+**	The others are necessary for successfully shifting tetramino 
+*/
 
 int		can_push(short *map, int map_size, short *coord, int *r_l_cur)
 {
@@ -30,9 +37,7 @@ int		can_push(short *map, int map_size, short *coord, int *r_l_cur)
 	if (curr_pos / map_size != ((coord[i] % map_size + curr_pos) / map_size))
 		return (-1);
 	if ((coord[0] + curr_pos) % map_size >= map_size - r_l_cur[0])
-	{
 		return (-1);
-	}
 	if (((coord[0] + curr_pos - r_l_cur[1]) % map_size >
 	map_size - (r_l_cur[0] + r_l_cur[1] + 1)))
 	{
@@ -40,6 +45,12 @@ int		can_push(short *map, int map_size, short *coord, int *r_l_cur)
 	}
 	return (0);
 }
+
+/*
+** Clears tetrimino from the map.
+** This function is used when there is no decision with this tetrimino in this spot
+** and all the previous tetriminos on their spots.
+*/
 
 void	clear_tetri(short **map, t_lst **node, int curr_pos)
 {
@@ -52,6 +63,10 @@ void	clear_tetri(short **map, t_lst **node, int curr_pos)
 		i++;
 	}
 }
+
+/*
+** Places tetrimino on the map.
+*/
 
 void	push_tetri(short **map, t_lst **node, int curr_pos, int num)
 {
@@ -66,6 +81,12 @@ void	push_tetri(short **map, t_lst **node, int curr_pos, int num)
 		i++;
 	}
 }
+
+/*
+** Checks height AND length of every tetrimino.
+** If at least one of them is greater than map size, returns the greater one.
+** Map size in (bruteforce) is assigned to that number.
+*/
 
 int		check_height(short *coords, int map_size, int r, int l)
 {

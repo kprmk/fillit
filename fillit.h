@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kprmk <kprmk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 18:51:44 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/16 18:55:09 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/17 01:19:22 by kprmk            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int				can_push(short *map, int map_size, short *coord, int *r_l_curr);
 void			clear_tetri(short **map, t_lst **node, int curr_pos);
 void			push_tetri(short **map, t_lst **node, int curr_pos, int num);
 int				can_tetri_be_in_map(short *map, int map_size, short *coord);
-int				solve(short **map, int map_size, t_lst **node, int num);
+int				solve(t_lst *head, short **map, int map_size, t_lst **node, int num);
 void			bruteforce(t_lst *node, int tetri_nbr);
 void			change_map_size(short **c, int src_size, int dest_size);
 void			change_size_for_lst(t_lst *node, int start_size, int dest_size);
