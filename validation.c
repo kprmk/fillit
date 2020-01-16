@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 15:53:40 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/16 16:57:09 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/16 17:38:56 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,9 @@ int		check_input_with_lst(t_lst **head, char *str, int *i, char *ar)
 }
 
 /*
-**	Each character must be either a block character(’#’)
-**	or an empty character (’.’)
+** Checks one tetrimino from input.	
+** After that deletes allocated array.
 */
-
 int		check_tetri(char ***tetri_ar, int *i, t_lst **head, char *ar)
 {
 	int j;

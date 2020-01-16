@@ -6,12 +6,15 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:26:11 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/13 22:51:23 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/16 17:25:43 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
+/*
+** Deletes any double pointer to char.
+*/
 void	delete_charmap(char ***map, int size)
 {
 	int i;
@@ -26,6 +29,9 @@ void	delete_charmap(char ***map, int size)
 	*map = NULL;
 }
 
+/*
+** Prints any double pointer to char.
+*/
 void	print_charmap(char **map, int map_size)
 {
 	int x;
@@ -45,6 +51,10 @@ void	print_charmap(char **map, int map_size)
 	}
 }
 
+/*
+** Creates double pointer to char - two-dimensional square array of char.
+** This is the square where we're trying to place tetriminos.
+*/
 char	**create_charmap(int size)
 {
 	int		i;
@@ -74,6 +84,12 @@ char	**create_charmap(int size)
 	return (map);
 }
 
+/*
+** Prints map with tetriminos on it.
+** Each tetrimino is represented by 4 letters, one letter for each tetrimino.
+** List structure stores the order of placing tetriminos - index_number.
+** That index plus 'A' gives us the necessary letter.
+*/
 int		print_with_letters(t_lst *head, t_lst *cur, int size)
 {
 	int		amount;

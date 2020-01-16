@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 21:52:44 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/16 15:08:23 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/16 17:41:32 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ int		ft_sqrt(int nbr)
 	return (result);
 }
 
+/*
+** Ends validation:
+** reverses list, closes file descriptor.
+*/
 void	lst_rev(t_lst **head, int fd)
 {
 	t_lst *temp;

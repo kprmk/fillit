@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 22:01:55 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/14 16:19:24 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/16 17:35:34 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ int		can_push(short *map, int map_size, short *coord, int *r_l_cur)
 	return (0);
 }
 
+/*
+** Clears tetrimino from the map.
+** This function is used when there is no decision with this tetrimino in this spot
+** and all the previous tetriminos on their spots.
+*/
 void	clear_tetri(short **map, t_lst **node, int curr_pos)
 {
 	int i;
@@ -53,6 +58,9 @@ void	clear_tetri(short **map, t_lst **node, int curr_pos)
 	}
 }
 
+/*
+** Places tetrimino on the map.
+*/
 void	push_tetri(short **map, t_lst **node, int curr_pos, int num)
 {
 	int i;
@@ -67,6 +75,11 @@ void	push_tetri(short **map, t_lst **node, int curr_pos, int num)
 	}
 }
 
+/**
+** Checks height AND length of every tetrimino.
+** If at least one of them is greater than map size, returns the greater one.
+** Map size in (bruteforce) is assigned to that number.
+*/
 int		check_height(short *coords, int map_size, int r, int l)
 {
 	int i;
