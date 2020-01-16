@@ -6,13 +6,13 @@
 #    By: kprmk <kprmk@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 17:25:06 by eshor             #+#    #+#              #
-#    Updated: 2020/01/17 01:25:41 by kprmk            ###   ########.fr        #
+#    Updated: 2020/01/17 01:33:59 by kprmk            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 COMPILER = gcc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 INC = -I libft/includes
 LIB = libft/libft.a
 SRCS = fillit.c \

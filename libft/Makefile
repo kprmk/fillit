@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eshor <eshor@student.42.fr>                +#+  +:+       +#+         #
+#    By: kprmk <kprmk@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/15 21:34:43 by mbrogg            #+#    #+#              #
-#    Updated: 2020/01/16 16:15:35 by eshor            ###   ########.fr        #
+#    Updated: 2020/01/17 01:33:35 by kprmk            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 COMPILER = gcc
-FLAGS = 
+FLAGS = -g
 INC = -I includes/
 SRCS = ft_atoi.c \
 	ft_strmap.c \
