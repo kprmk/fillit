@@ -6,15 +6,12 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 21:31:08 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/16 17:26:55 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 22:35:20 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-/*
-** Prints any pointer to short - one-dimensional array of short.
-*/
 int		print_map(short *map, int size)
 {
 	int i;
@@ -42,9 +39,6 @@ int		print_map(short *map, int size)
 	return (0);
 }
 
-/*
-** Creates pointer to short.
-*/
 short	*create_map(int size)
 {
 	short	*map;
@@ -60,9 +54,7 @@ short	*create_map(int size)
 	}
 	return (map);
 }
-/*
-** Deletes pointer to short.
-*/
+
 void	delete_map(short **map)
 {
 	free(*map);

@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 21:52:44 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/16 17:41:32 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/16 19:15:30 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,6 @@ int		ft_sqrt(int nbr)
 	return (result);
 }
 
-/*
-** Ends validation:
-** reverses list, closes file descriptor.
-*/
 void	lst_rev(t_lst **head, int fd)
 {
 	t_lst *temp;
@@ -41,4 +37,16 @@ void	lst_rev(t_lst **head, int fd)
 	free(temp);
 	lst_reverse(head);
 	close(fd);
+}
+
+int		ar_length(char **tetri)
+{
+	int i;
+
+	i = 0;
+	while (tetri[i])
+	{
+		i++;
+	}
+	return (i);
 }

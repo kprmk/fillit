@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:41:46 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/16 17:38:00 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/13 13:42:09 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@ void	lst_reverse(t_lst **head)
 	*head = cur;
 }
 
-/*
-** Applies function f to every node of the list.
-*/
 void	lst_foreach(t_lst *head, void (*f)(void *))
 {
 	t_lst	*current;

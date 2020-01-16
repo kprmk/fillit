@@ -6,21 +6,12 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 21:16:59 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/16 17:52:52 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/14 16:23:25 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-/**
-** Solve functions uses backtracking algorithm.
-** It places tetriminos on the map one by one starting from the upperleft corner
-** and moving from left to right and the from up to down.
-** If in the first pass it succeeds in filling the map, that is the decision we're looking for.
-** If it doesn't, it clears the last placed tetri and tries to place it on the next spot.
-** This way it moves from the last tetrimino to the first one.
-** If all the options are out, it returns -1 (failure)
-*/
 int			solve(short **map, int map_size, t_lst **node, int num)
 {
 	int r_l_curr[3];
@@ -48,15 +39,6 @@ int			solve(short **map, int map_size, t_lst **node, int num)
 	return (-1);
 }
 
-/*
-** Initial size of the map where we're placing tetriminos equals
-** square root of (number of tetriminos * 4), which is rarely the case.
-** Function solve tries to place all tetriminos on this map.
-** If it succeeds, bruteforce prints the map with letters.
-** If it doesn't, bruteforce deletes the old map and creates a new one.
-** The new map's size is one greater.
-** That loop repeats until Solve functions returns 0 (success).
-*/
 void		bruteforce(t_lst *node, int tetri_nbr)
 {
 	short	*map;

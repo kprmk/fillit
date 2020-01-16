@@ -6,17 +6,12 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 16:53:41 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/16 17:31:58 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/14 16:23:35 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-/*
-** In the input file tetriminos can be anywhere on the 4x4 square.
-** For convenience we move them all in the upperleft corner,
-** because we start filling the map from that spot.
-*/
 void	move_upleft(short **c)
 {
 	int empty_rows;
@@ -45,10 +40,6 @@ void	move_upleft(short **c)
 		(*c)[i] = (*c)[i] - empty_rows * 4 - empty_columns;
 }
 
-/*
-** Changes coordinates of one tetrimino
-** according to the size of the map we're placing them on.
-*/
 void	change_map_size(short **c, int src_size, int dest_size)
 {
 	int i;
@@ -63,9 +54,6 @@ void	change_map_size(short **c, int src_size, int dest_size)
 	}
 }
 
-/*
-** Changes coordinates of all tetriminos according to the size of the map.
-*/
 void	change_size_for_lst(t_lst *node, int start_size, int dest_size)
 {
 	t_lst	*temp;

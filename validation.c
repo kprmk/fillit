@@ -6,12 +6,11 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 15:53:40 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/16 17:38:56 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/16 19:14:44 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 char	check_of_ending_block(t_lst **head, short **mas, int *i, char *ar)
 {
@@ -86,14 +85,17 @@ int		check_input_with_lst(t_lst **head, char *str, int *i, char *ar)
 }
 
 /*
-** Checks one tetrimino from input.	
-** After that deletes allocated array.
+**	Each character must be either a block character(’#’)
+**	or an empty character (’.’)
 */
+
 int		check_tetri(char ***tetri_ar, int *i, t_lst **head, char *ar)
 {
 	int j;
 	int res;
 
+	if (ar_length(*tetri_ar) != 4 && (ar_length(*tetri_ar) != 5 && *i == 0))
+		return (0);
 	j = 0;
 	res = 1;
 	while (j < 4)

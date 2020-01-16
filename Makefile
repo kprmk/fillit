@@ -6,7 +6,7 @@
 #    By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 17:25:06 by eshor             #+#    #+#              #
-#    Updated: 2020/01/14 20:55:56 by mbrogg           ###   ########.fr        #
+#    Updated: 2020/01/16 19:27:33 by mbrogg           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,10 +39,10 @@ $(NAME): $(OBJ)
 	@$(COMPILER) $(FLAGS) -o $(NAME) $(OBJ) $(SRCS) $(INC) $(LIB)
 	
 clean:
-	@cd libft && make clean
+	@make -C libft clean
 	
 fclean:
-	@cd libft && make fclean
+	@make -C libft fclean
 	@rm -f $(NAME)
 
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 18:51:44 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/16 15:08:37 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/16 18:55:09 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,5 @@ void			delete_charmap(char ***map, int size);
 char			ft_mod(int a);
 void			endblock_loop(short **mas);
 int				lst_len(t_lst *head);
+int				ar_length(char **tetri);
 #endif
