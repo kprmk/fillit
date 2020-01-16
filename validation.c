@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 15:53:40 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/14 17:09:01 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/16 15:09:26 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,18 +90,6 @@ int		check_input_with_lst(t_lst **head, char *str, int *i, char *ar)
 **	or an empty character (’.’)
 */
 
-void	lst_rev(t_lst **head, int fd)
-{
-	t_lst *temp;
-
-	temp = *head;
-	*head = (*head)->next;
-	free(temp->coords);
-	free(temp);
-	lst_reverse(head);
-	close(fd);
-}
-
 int		check_tetri(char ***tetri_ar, int *i, t_lst **head, char *ar)
 {
 	int j;
@@ -122,7 +110,7 @@ int		validation(char *file_name, t_lst **head)
 	char	str[21];
 	char	**tetri_ar;
 	int		fd;
-	int 	i;
+	int		i;
 	char	ar[4];
 
 	ar[0] = 0;

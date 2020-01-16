@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   aux_funcs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrogg <mbrogg@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 21:52:44 by eshor             #+#    #+#             */
-/*   Updated: 2020/01/13 19:55:39 by mbrogg           ###   ########.fr       */
+/*   Updated: 2020/01/16 15:08:23 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,16 @@ int		ft_sqrt(int nbr)
 	while (result * result < nbr)
 		result++;
 	return (result);
+}
+
+void	lst_rev(t_lst **head, int fd)
+{
+	t_lst *temp;
+
+	temp = *head;
+	*head = (*head)->next;
+	free(temp->coords);
+	free(temp);
+	lst_reverse(head);
+	close(fd);
 }
