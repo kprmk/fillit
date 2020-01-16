@@ -6,7 +6,7 @@
 /*   By: eshor <eshor@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 15:53:40 by mbrogg            #+#    #+#             */
-/*   Updated: 2020/01/16 16:11:49 by eshor            ###   ########.fr       */
+/*   Updated: 2020/01/16 16:57:09 by eshor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,16 +93,18 @@ int		check_input_with_lst(t_lst **head, char *str, int *i, char *ar)
 int		check_tetri(char ***tetri_ar, int *i, t_lst **head, char *ar)
 {
 	int j;
+	int res;
 
 	j = 0;
+	res = 1;
 	while (j < 4)
 	{
 		if (check_input_with_lst(head, (*tetri_ar)[j], i, ar) < 1)
-			return (0);
+			res = 0;
 		j++;
 	}
 	delete_charmap(tetri_ar, 4);
-	return (1);
+	return (res);
 }
 
 int		validation(char *file_name, t_lst **head)
